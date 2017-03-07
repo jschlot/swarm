@@ -1,0 +1,18 @@
+@import '../core/components/colors';
+@import '../core/components/fonts';
+
+.navigation {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
+	background-color: $white;
+
+	&__title {
+		margin: 1em;
+		font-weight: lighter;
+		color: $black;
+		font-family: $system;
+	}
+}
