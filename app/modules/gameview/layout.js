@@ -8,12 +8,13 @@ const Gameview = (props) => {
         body,
         decision,
         currentChapterIdx,
+        finalOutcome,
         result,
         chapterReport,
         scorecardReport,
         onChoice,
         onNext,
-        getFinalOutcome
+        onReset
     } = props;
 
     return (
@@ -49,7 +50,8 @@ const Gameview = (props) => {
                     { !heading ? (
                         <div className="gameview__end-of-game">
                             <div className="gameview__question">the final results are</div>
-                            <div className="gameview__results">you are { getFinalOutcome }</div>
+                            <div className="gameview__results">you are { finalOutcome }</div>
+                            <div className="gameview__end-of-game gameview__pick" onClick={onReset}>try again</div>
                         </div>
                     ) : null }
                     </div>
@@ -63,6 +65,7 @@ Gameview.propTypes = {
     message: PropTypes.string,
     heading: PropTypes.string,
     body: PropTypes.string,
+    finalOutcome: PropTypes.string,
     decision: PropTypes.object,
     currentChapterIdx: PropTypes.number,
     result: PropTypes.string,
@@ -70,7 +73,7 @@ Gameview.propTypes = {
     scorecardReport: PropTypes.object,
     onChoice: PropTypes.func,
     onNext: PropTypes.func,
-    getFinalOutcome: PropTypes.string
+    onReset: PropTypes.func
 };
 
 export default Gameview;

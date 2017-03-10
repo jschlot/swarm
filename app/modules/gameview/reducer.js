@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 import {
     MAKE_CHOICE,
-    NEXT_CHAPTER
+    NEXT_CHAPTER,
+    RESET
 } from './actionTypes';
 
 import { BOOK } from './constants';
@@ -11,6 +12,8 @@ const book = (state = BOOK, action) => state;
 
 const choices = (state = [], action) => {
     switch (action.type) {
+        case 'RESET':
+            return [];
         case 'MAKE_CHOICE':
             return [
                 ...state,
@@ -39,6 +42,8 @@ const toaster = (state = '', action) => {
 
 const progress = (state = {chapter: 0, decision: 0}, action) => {
     switch (action.type) {
+        case 'RESET':
+            return {chapter: 0, decision: 0};
         case 'MAKE_CHOICE':
             const decision = state.decision + 1;
             return {

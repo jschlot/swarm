@@ -15,7 +15,8 @@ import {
 
 import {
     makeChoice,
-    nextChapter
+    nextChapter,
+    reset
 } from './actions';
 
 import Gameview from './layout';
@@ -34,14 +35,15 @@ const mapStateToProps = (state) => {
         result: getResult(state, currentChapterIdx),
         chapterReport: getAllResultsPerChapter(state),
         scorecardReport: getScorecard(state),
-        getFinalOutcome: getFinalOutcome(state)
+        finalOutcome: getFinalOutcome(state)
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onChoice: (question, choice, chapterIdx) => dispatch(makeChoice(question, choice, chapterIdx)),
-        onNext: () => dispatch(nextChapter())
+        onNext: () => dispatch(nextChapter()),
+        onReset: () => dispatch(reset())
     };
 };
 
