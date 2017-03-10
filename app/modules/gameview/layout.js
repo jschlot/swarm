@@ -12,7 +12,8 @@ const Gameview = (props) => {
         chapterReport,
         scorecardReport,
         onChoice,
-        onNext
+        onNext,
+        getFinalOutcome
     } = props;
 
     return (
@@ -31,7 +32,7 @@ const Gameview = (props) => {
                     ) : null }
                     { result && !decision.options ? (
                         <div className="gameview_end-of-chapter">
-                            <div className="gameview__results">you are a {result}</div>
+                            <div className="gameview__results">you are {result}</div>
                             <div className="gameview__move-ahead" onClick={onNext}>move ahead</div>
                         </div>
                     ) : null }
@@ -45,6 +46,11 @@ const Gameview = (props) => {
                             <div key={key}><b>{key}</b>: {scorecardReport[key]}</div>
                         )
                     ) : null}
+                    { !heading ? (
+                        <div className="gameview_end-of-chapter">
+                            <div className="gameview__results">you are { getFinalOutcome }</div>
+                        </div>
+                    ) : null }
                     </div>
                 </div>
             </div>
@@ -53,16 +59,17 @@ const Gameview = (props) => {
 };
 
 Gameview.propTypes = {
-    message: React.PropTypes.string,
-    heading: React.PropTypes.string,
-    body: React.PropTypes.string,
-    decision: React.PropTypes.object,
-    currentChapterIdx: React.PropTypes.number,
-    result: React.PropTypes.string,
-    chapterReport: React.PropTypes.object,
-    scorecardReport: React.PropTypes.object,
-    onChoice: React.PropTypes.func,
-    onNext: React.PropTypes.func
+    message: PropTypes.string,
+    heading: PropTypes.string,
+    body: PropTypes.string,
+    decision: PropTypes.object,
+    currentChapterIdx: PropTypes.number,
+    result: PropTypes.string,
+    chapterReport: PropTypes.object,
+    scorecardReport: PropTypes.object,
+    onChoice: PropTypes.func,
+    onNext: PropTypes.func,
+    getFinalOutcome: PropTypes.string
 };
 
 export default Gameview;

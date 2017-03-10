@@ -25,7 +25,7 @@ export const BOOK = {
             title: 'quick eyesight test',
             body: 'this is your second decision. you are doing well so far...',
             decisions: [
-                '003'
+                '003', '004'
             ]
         }
     ],
@@ -80,6 +80,24 @@ export const BOOK = {
                 },
                 {
                     text: 'dark',
+                    alignment: ALIGNMENTS.EVIL
+                }
+            ]
+        },
+        '004': {
+            id: '004',
+            text: 'what is your ideal holiday?',
+            options: [
+                {
+                    text: 'beach',
+                    alignment: ALIGNMENTS.GOOD
+                },
+                {
+                    text: 'forest',
+                    alignment: ALIGNMENTS.NEUTRAL
+                },
+                {
+                    text: 'desert',
                     alignment: ALIGNMENTS.EVIL
                 }
             ]

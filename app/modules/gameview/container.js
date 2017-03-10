@@ -9,7 +9,8 @@ import {
     getDecisionProgress,
     getResult,
     getAllResultsPerChapter,
-    getScorecard
+    getScorecard,
+    getFinalOutcome
 } from './selectors';
 
 import {
@@ -32,7 +33,8 @@ const mapStateToProps = (state) => {
         decision: getDecisionByChapter(state, currentChapterIdx, currentDecisionId),
         result: getResult(state, currentChapterIdx),
         chapterReport: getAllResultsPerChapter(state),
-        scorecardReport: getScorecard(state)
+        scorecardReport: getScorecard(state),
+        getFinalOutcome: getFinalOutcome(state)
     };
 };
 

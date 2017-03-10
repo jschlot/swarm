@@ -70,3 +70,25 @@ export const getScorecard = (state) => {
 
     return countedAlignments;
 };
+
+export const getFinalOutcome = (state) => {
+    if (!choices(state)) return '';
+
+    const countedAlignments = choices(state).reduce((alignments, obj) => {
+        const key = obj.answer.alignment;
+        if (key in alignments) {
+            alignments[key]++;
+        } else {
+            alignments[key] = 1;
+        }
+        return alignments;
+    }, {});
+
+    let report = '';
+
+    if (Object.keys(countedAlignments).length) {
+        report = Object.keys(countedAlignments).reduce((a, b) => { return countedAlignments[a] > countedAlignments[b] ? a : b; });
+    }
+
+    return report;
+};
