@@ -4,9 +4,6 @@ exports.up = function(knex, Promise) {
             table.increments('id');
             table.timestamps();
             table.string('email').unique();
-            table.string('password_hash');
-            table.string('password_reset_sha512', 128).unique();
-            table.timestamp('password_reset_expiration');
         })
     ]);
 };
