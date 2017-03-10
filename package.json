@@ -2,6 +2,10 @@
   "name": "swarm",
   "version": "1.0.0",
   "description": "A conversation-based game based on quizzes",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jschlot/swarm.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "",
@@ -18,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "file-loader": "^0.9.0",
+    "knex": "^0.12.7",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-hot-loader": "^3.0.0-beta.2",
