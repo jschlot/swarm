@@ -11,7 +11,8 @@
     "test": "",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "migrate": "knex migrate:latest"
   },
   "keywords": [
     "es6",
