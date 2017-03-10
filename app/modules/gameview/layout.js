@@ -47,7 +47,8 @@ const Gameview = (props) => {
                         )
                     ) : null}
                     { !heading ? (
-                        <div className="gameview_end-of-chapter">
+                        <div className="gameview__end-of-game">
+                            <div className="gameview__question">the final results are</div>
                             <div className="gameview__results">you are { getFinalOutcome }</div>
                         </div>
                     ) : null }

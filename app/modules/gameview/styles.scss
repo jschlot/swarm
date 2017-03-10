@@ -56,7 +56,6 @@
 
 		div {
 			cursor: pointer;
-			margin: 10px auto;
 			color: $dusty-gray;
 		}
 	}
@@ -73,5 +72,9 @@
   &__move-ahead {
 		margin-top: 20px;
     font-weight: 700;
+	}
+
+	&__end-of-game {
+		margin-top: 20px;
 	}
 }
