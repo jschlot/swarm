@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import { gameview } from './styles.scss';
 
 const Gameview = (props) => {
@@ -12,15 +13,26 @@ const Gameview = (props) => {
         result,
         chapterReport,
         scorecardReport,
+        chapterEnding,
         onChoice,
         onNext,
         onReset
     } = props;
 
+    // result
+    const resultClass = classNames({
+        'gameview__xp': true,
+        'gameview__result--good': result === 'good',
+        'gameview__result--evil': result === 'evil',
+        'gameview__result--lawful': result === 'lawful',
+        'gameview__result--chaotic': result === 'chaotic'
+    });
+
     return (
         <section className="gameview">
             <article className="gameview__toaster">
-                { message }
+                <div>{ message }</div>
+               { result ? <div className={resultClass}>{result} points earned</div> : null }
             </article>
 
             <article className="gameview__main">
@@ -45,8 +57,8 @@ const Gameview = (props) => {
                             </div>
                         ) : null }
                         { result && !decision.options ? (
-                            <div className="gameview__results">
-                                {result} chapter ending
+                            <div>
+                                {chapterEnding}
                             </div>
                         ) : null }
                     </div>
@@ -102,7 +114,8 @@ Gameview.propTypes = {
     scorecardReport: PropTypes.object,
     onChoice: PropTypes.func,
     onNext: PropTypes.func,
-    onReset: PropTypes.func
+    onReset: PropTypes.func,
+    chapterEnding: PropTypes.string
 };
 
 export default Gameview;

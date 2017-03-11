@@ -10,7 +10,8 @@ import {
     getResult,
     getAllResultsPerChapter,
     getScorecard,
-    getFinalOutcome
+    getFinalOutcome,
+    getChapterEnding
 } from './selectors';
 
 import {
@@ -24,18 +25,20 @@ import Gameview from './layout';
 const mapStateToProps = (state) => {
     const currentChapterIdx = getChapterProgress(state);
     const currentDecisionId = getDecisionProgress(state);
+    const result = getResult(state, currentChapterIdx);
 
     return {
         currentChapterIdx,
         currentDecisionId,
+        result,
         message: getMessage(state),
         heading: getChapterHeading(state, currentChapterIdx),
         body: getChapterBody(state, currentChapterIdx),
         decision: getDecisionByChapter(state, currentChapterIdx, currentDecisionId),
-        result: getResult(state, currentChapterIdx),
         chapterReport: getAllResultsPerChapter(state),
         scorecardReport: getScorecard(state),
-        finalOutcome: getFinalOutcome(state)
+        finalOutcome: getFinalOutcome(state),
+        chapterEnding: getChapterEnding(state, currentChapterIdx, result)
     };
 };
 

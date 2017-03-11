@@ -22,6 +22,7 @@
   "author": "Jack Schlotthauer",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.5",
     "file-loader": "^0.9.0",
     "knex": "^0.12.7",
     "pg": "^6.1.4",

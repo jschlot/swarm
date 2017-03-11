@@ -5,7 +5,7 @@
 	width: 100%;
 	height: 640px;
 	background-color: $black;
-	color: $dusty-gray;
+	color: $dustygray;
 	font-family: $viewport;
   font-weight: 100;
 	text-align: left;
@@ -18,13 +18,19 @@
 	justify-content: space-between;
 
 	article {
-		width: 100%;
-		margin-left: 4em;
+		width: 90%;
 	}
 
 	&__toaster, &__navigation {
 		height: 2em;
 		margin: 1em 0;
+		color: $white;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__xp {
+		color: $dustygray;	
 	}
 
 	&__main {
@@ -39,29 +45,61 @@
 	&__heading {
 		font-size: 50px;
 		margin-bottom: .5em;
+		color: $white;
 	}
 
 	&__body {
 		margin-bottom: 1em;
+		font-style: italic;
 	}
 
 	&__question {
 		margin-bottom: 1em;
 	}
 
-	&__pick, &__next {
+	&__pick {
 		cursor: pointer;
+		margin: .6em 0;
+		font-weight: 300;
+		
+		&:before {
+			content: '> ';
+		}
+
+		&:hover {
+			color: $white;
+			font-weight: 500;
+		}
+	}
+
+	&__result {
+		font-weight: 300;
+		&--good {
+			color: $curiousblue;
+		}
+		&--lawful {
+			color: $mountainmeadow;
+		}
+		&--chaotic {
+			color: $buttercup;
+		}
+		&--evil {
+			color: $tallpoppy;
+		}
+	}
+
+	&__next {
+		cursor: pointer;
+		font-size: 150%;
+		color: $white;
+
+		&:before {
+			content: '> ';
+		}
 
 		&:hover {
 			font-weight: 300;
 		}
 	}
 
-	&__pick {
-		margin: .6em 0;
-	}
-
-	&__next {
-		font-size: 150%;
-	}
 }

@@ -3,74 +3,59 @@ export const NAME = 'story';
 export const ALIGNMENTS = {
     LAWFUL: 'lawful',
     CHAOTIC: 'chaotic',
-
     GOOD: 'good',
     EVIL: 'evil',
-
     NEUTRAL: 'neutral'
 };
 
 export const BOOK = {
     chapter: [
         {
-            idx: 0,
-            title: 'time to make your mark',
-            body: 'try not to make too many mistakes. but try not to be too stressed about it, either',
-            decisions: []
+            title: 'with a whisper',
+            body: 'optional text',
+            decisions: ['001'],
+            endings: {
+                [ALIGNMENTS.GOOD]: 'thanks mister! i must have fallen asleep while waiting for my parents.',
+                default: 'the little girl wakes up, and walks up to you. she tugs at your sleeve as if the wants to thank you for being there.'
+            }
         },
         {
-            idx: 1,
-            title: 'chapter one',
+            title: 'an unexpected friend',
             decisions: [
-                '001', '002'
-            ]
-        },
-        {
-            idx: 2,
-            title: 'chapter two',
-            decisions: [
-                '003', '004'
-            ]
+                '002'
+            ],
+            endings: {
+                [ALIGNMENTS.EVIL]: 'that\'s ok, my mommy taught me to wait for supper.',
+                [ALIGNMENTS.GOOD]: 'thank you, mister. what is your name? let\'s be friends.',
+            }
         }
     ],
     decision: {
         '001': {
             id: '001',
-            text: 'what is your favorite color?',
+            text: 'you open your eyes, and lift yourself off the ground. looking around, you see a small child curled against the wall, shivering.',
             options: [
                 {
-                    text: 'crimson',
-                    alignment: ALIGNMENTS.CHAOTIC
+                    text: 'approach child',
+                    alignment: ALIGNMENTS.GOOD
                 },
                 {
-                    text: 'azure',
-                    alignment: ALIGNMENTS.NEUTRAL
-                },
-                {
-                    text: 'amber',
-                    alignment: ALIGNMENTS.LAWFUL
-                },
-                {
-                    text: 'charcoal',
+                    text: 'find an exit, fast',
                     alignment: ALIGNMENTS.CHAOTIC
                 }
             ]
         },
         '002': {
             id: '002',
-            text: 'which do you prefer?',
+            text: '"could you find me some food? I haven\'t eaten in so long", she says quietly.',
             options: [
                 {
-                    text: 'left',
-                    alignment: ALIGNMENTS.CHAOTIC
+                    text: 'offer her your last bit of food',
+                    alignment: ALIGNMENTS.GOOD
                 },
                 {
-                    text: 'center',
-                    alignment: ALIGNMENTS.NEUTRAL
-                },
-                {
-                    text: 'right',
-                    alignment: ALIGNMENTS.LAWFUL
+                    text: '(lie) tell her you don\'t have any food',
+                    alignment: ALIGNMENTS.EVIL
                 }
             ]
         },

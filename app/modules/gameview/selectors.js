@@ -1,19 +1,26 @@
 import { NAME, BOOK } from './constants';
 
 const root = state => state[NAME];
-	export const getMessage = state => root(state).toaster;
+export const getMessage = state => root(state).toaster;
 
-	const gameProgress = state => root(state).progress;
-	export const getChapterProgress = state => gameProgress(state).chapter;
-	export const getDecisionProgress = state => gameProgress(state).decision;
+const gameProgress = state => root(state).progress;
+export const getChapterProgress = state => gameProgress(state).chapter;
+export const getDecisionProgress = state => gameProgress(state).decision;
 
-	const book = state => BOOK;
-		const getChapter = (state, chapterIndex) => book(state).chapter[chapterIndex];
-			export const getChapterHeading = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).title;
-			export const getChapterBody = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).body;
+const book = state => BOOK;
+const getChapter = (state, chapterIndex) => book(state).chapter[chapterIndex];
+export const getChapterHeading = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).title;
+export const getChapterBody = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).body;
 
-		const getDecision = (state, index) => book(state).decision[index];
-			export const getDecisionByChapter = (state, chapterIndex, index) => getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
+export const getChapterEnding = (state, chapterIndex, alignment) => {
+    const chapter = getChapter(state, chapterIndex);
+    if (!chapter) return '';
+    const defaultValue = chapter.endings.default || '';
+    return (alignment && chapter.endings[alignment]) ? chapter.endings[alignment] : defaultValue;
+};
+
+const getDecision = (state, index) => book(state).decision[index];
+export const getDecisionByChapter = (state, chapterIndex, index) => getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
 
 const choices = state => root(state).choices;
 
