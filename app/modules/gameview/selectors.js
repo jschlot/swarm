@@ -19,8 +19,15 @@ export const getChapterEnding = (state, chapterIndex, alignment) => {
     return (alignment && chapter.endings[alignment]) ? chapter.endings[alignment] : defaultValue;
 };
 
+export const getStoryEnding = (state, alignment) => {
+    const story = book(state);
+    const defaultValue = story.outcomes.default || '';
+    return (alignment && story.outcomes[alignment]) ? story.outcomes[alignment] : defaultValue;
+};
+
 const getDecision = (state, index) => book(state).decision[index];
 export const getDecisionByChapter = (state, chapterIndex, index) => getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
+
 
 const choices = state => root(state).choices;
 

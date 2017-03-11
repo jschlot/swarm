@@ -16,16 +16,16 @@ const Gameview = (props) => {
         chapterEnding,
         onChoice,
         onNext,
-        onReset
+        onReset,
+        storyEnding
     } = props;
 
     // result
     const resultClass = classNames({
-        'gameview__xp': true,
-        'gameview__result--good': result === 'good',
-        'gameview__result--evil': result === 'evil',
-        'gameview__result--lawful': result === 'lawful',
-        'gameview__result--chaotic': result === 'chaotic'
+        'gameview__xp--good': result === 'good',
+        'gameview__xp--evil': result === 'evil',
+        'gameview__xp--lawful': result === 'lawful',
+        'gameview__xp--chaotic': result === 'chaotic'
     });
 
     return (
@@ -58,24 +58,24 @@ const Gameview = (props) => {
                         ) : null }
                         { result && !decision.options ? (
                             <div>
-                                {chapterEnding}
+                                { chapterEnding }
                             </div>
                         ) : null }
                     </div>
                 ) : (
                     <div className="gameview__content">
                         <h2 className="gameview__heading">
-                            final results
+                            epilogue
                         </h2>
-                        <div className="gameview__choices">
+                        <div className="gameview__subheading">
+                            { storyEnding }
+                        </div>
+                        <div className="gameview__results">
                             { Object.keys(chapterReport).map(index => (
                                 <div key={index}>
                                     <b>{chapterReport[index].title}</b>: {chapterReport[index].result} chapter ending
                                 </div>
                             )) }
-                        </div>
-                        <div className="gameview__results">
-                            epilogue: { finalOutcome } ending
                         </div>
                     </div>
                 ) }
@@ -115,7 +115,8 @@ Gameview.propTypes = {
     onChoice: PropTypes.func,
     onNext: PropTypes.func,
     onReset: PropTypes.func,
-    chapterEnding: PropTypes.string
+    chapterEnding: PropTypes.string,
+    storyEnding: PropTypes.string
 };
 
 export default Gameview;

@@ -29,10 +29,6 @@
 		justify-content: space-between;
 	}
 
-	&__xp {
-		color: $dustygray;	
-	}
-
 	&__main {
 		height: 100%;
 	}
@@ -72,7 +68,11 @@
 		}
 	}
 
-	&__result {
+	&__results {
+		display: none;
+	}
+
+	&__xp {
 		font-weight: 300;
 		&--good {
 			color: $curiousblue;

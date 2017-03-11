@@ -11,7 +11,8 @@ import {
     getAllResultsPerChapter,
     getScorecard,
     getFinalOutcome,
-    getChapterEnding
+    getChapterEnding,
+    getStoryEnding
 } from './selectors';
 
 import {
@@ -26,6 +27,7 @@ const mapStateToProps = (state) => {
     const currentChapterIdx = getChapterProgress(state);
     const currentDecisionId = getDecisionProgress(state);
     const result = getResult(state, currentChapterIdx);
+    const finalOutcome = getFinalOutcome(state);
 
     return {
         currentChapterIdx,
@@ -38,7 +40,8 @@ const mapStateToProps = (state) => {
         chapterReport: getAllResultsPerChapter(state),
         scorecardReport: getScorecard(state),
         finalOutcome: getFinalOutcome(state),
-        chapterEnding: getChapterEnding(state, currentChapterIdx, result)
+        chapterEnding: getChapterEnding(state, currentChapterIdx, result),
+        storyEnding: getStoryEnding(state, finalOutcome)
     };
 };
 

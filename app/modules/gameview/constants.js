@@ -12,7 +12,6 @@ export const BOOK = {
     chapter: [
         {
             title: 'with a whisper',
-            body: 'optional text',
             decisions: ['001'],
             endings: {
                 [ALIGNMENTS.GOOD]: 'thanks mister! i must have fallen asleep while waiting for my parents.',
@@ -21,15 +20,23 @@ export const BOOK = {
         },
         {
             title: 'an unexpected friend',
-            decisions: [
-                '002'
-            ],
+            decisions: ['002'],
             endings: {
                 [ALIGNMENTS.EVIL]: 'that\'s ok, my mommy taught me to wait for supper.',
                 [ALIGNMENTS.GOOD]: 'thank you, mister. what is your name? let\'s be friends.',
             }
+        },
+        {
+            title: 'run for your life',
+            body: 'hand in hand you run through a grassy field.',
+            decisions: [],
+            endings: {}
         }
     ],
+    outcomes: {
+        [ALIGNMENTS.EVIL]: 'sadly, the little girl dies suddenly. you never even got to know her name.',
+        default: 'you make it to an army hospital, and back to civilization.',
+    },
     decision: {
         '001': {
             id: '001',
