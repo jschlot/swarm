@@ -15,15 +15,21 @@ export const BOOK = {
         {
             idx: 0,
             title: 'time to make your mark',
-            body: 'these are your first decisions. try not to make too many mistakes. but try not to be too stressed about it, either...',
+            body: 'try not to make too many mistakes. but try not to be too stressed about it, either',
+            decisions: []
+        },
+        {
+            idx: 1,
+            title: 'chapter one',
+            body: 'these are your first decisions',
             decisions: [
                 '001', '002'
             ]
         },
         {
-            idx: 1,
-            title: 'quick eyesight test',
-            body: 'this is your second decision. you are doing well so far...',
+            idx: 2,
+            title: 'chapter two',
+            body: 'this is your second decision. you are doing well so far',
             decisions: [
                 '003', '004'
             ]

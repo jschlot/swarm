@@ -2,80 +2,53 @@
 @import '../../modules/core/components/fonts';
 
 .gameview {
-	background-color: $black;
-	height: 600px;
-	transition: height 0.5s;
-	color: $white;
 	width: 100%;
+	height: 640px;
+	background-color: $black;
+	color: $dusty-gray;
 	font-family: $viewport;
-	color: $white;
+  font-weight: 100;
 	text-align: center;
-	font-weight: 100;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: initial;
+	align-items: center;
+	justify-content: space-between;
 
-	&__content {
-		align-items: center;
+	article {
+		text-align: center;
 		width: 100%;
 	}
 
-	&__toaster {
-		height: 25px;
-		padding: 15px 0;
+	&__toaster, &__navigation {
+		height: 1em;
+		margin: 1em;
 	}
 
 	&__heading {
-    font-weight: 100;
-    font-size: 600%;
-    height: 175px;
-    width: 100%;
+		font-size: 50px;
+		margin-bottom: .5em;
 	}
 
 	&__body {
-		height: 150px;
-    width: 80%;
-		font-weight: 100;
-		font-size: 150%;
-		color: $dusty-gray;
-		margin: 0 auto;
-	}
-
-	&__decision {
-		width: 100%;
-		height: 100%;
-	}
-
-	&__question {
-    font-weight: 300;
-		font-size: 180%;
-		margin: 10px auto;
+		margin-bottom: 1em;
 	}
 
 	&__choices {
-		list-style: none;
-		margin: 0 0 40px 0;
-		padding: 0;
-		font-weight: 100;
+		margin-bottom: 1em;
+	}
 
-		div {
-			cursor: pointer;
-			color: $dusty-gray;
+	&__pick, &__next {
+		cursor: pointer;
+
+		&:hover {
+			font-weight: 300;
 		}
 	}
 
-	&__pick:hover {
-		color: $white;
-		font-weight: 700;
-	}
-
-	&__results {
-		font-size: 300%;
-	}
-
-  &__move-ahead {
-		margin-top: 20px;
-    font-weight: 700;
-	}
-
-	&__end-of-game {
-		margin-top: 20px;
+	&__pick {
+		margin: .2em 0;
 	}
 }

@@ -5,9 +5,9 @@ import { navigation } from './styles.scss';
 const Navigation = () => {
     return (
         <nav className="navigation">
-            <div className="navigation__title">
+            <h1 className="navigation__title">
                 SWARM
-            </div>
+            </h1>
         </nav>
     );
 };
