@@ -30,8 +30,14 @@ const Gameview = (props) => {
 
     return (
         <section className="gameview">
+            <div className="gameview__underlay">
+                <video className="gameview__video-player" id="background-video" loop autoPlay>
+                    <source src="https://pixabay.com/en/videos/download/video-447_large.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <article className="gameview__toaster">
-                <div>{ message }</div>
+                <div className="gameview__message">{ message }</div>
                { result ? <div className={resultClass}>{result} points earned</div> : null }
             </article>
 
@@ -57,8 +63,13 @@ const Gameview = (props) => {
                             </div>
                         ) : null }
                         { result && !decision.options ? (
-                            <div>
+                            <div className="gameview___result">
                                 { chapterEnding }
+                            </div>
+                        ) : null }
+                        { !decision.options ? (
+                            <div className="gameview__next" onClick={onNext}>
+                                go on...
                             </div>
                         ) : null }
                     </div>
@@ -70,30 +81,15 @@ const Gameview = (props) => {
                         <div className="gameview__subheading">
                             { storyEnding }
                         </div>
+                        <div className="gameview__next" onClick={onReset}>
+                            play again
+                        </div>
                         <div className="gameview__results">
                             { Object.keys(chapterReport).map(index => (
                                 <div key={index}>
                                     <b>{chapterReport[index].title}</b>: {chapterReport[index].result} chapter ending
                                 </div>
                             )) }
-                        </div>
-                    </div>
-                ) }
-            </article>
-
-            <article className="gameview__navigation">
-                { heading ? (
-                    <div className="gameview__footer">
-                        { !decision.options ? (
-                            <div className="gameview__next" onClick={onNext}>
-                                next
-                            </div>
-                        ) : null }
-                    </div>
-                ) : (
-                    <div className="gameview__footer">
-                        <div className="gameview__next" onClick={onReset}>
-                            try again
                         </div>
                     </div>
                 ) }

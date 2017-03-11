@@ -49,6 +49,14 @@ export const BOOK = {
                 {
                     text: 'find an exit, fast',
                     alignment: ALIGNMENTS.CHAOTIC
+                },
+                {
+                    text: 'approach child',
+                    alignment: ALIGNMENTS.GOOD
+                },
+                {
+                    text: 'find an exit, fast',
+                    alignment: ALIGNMENTS.CHAOTIC
                 }
             ]
         },
