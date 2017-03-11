@@ -21,7 +21,6 @@ export const BOOK = {
         {
             idx: 1,
             title: 'chapter one',
-            body: 'these are your first decisions',
             decisions: [
                 '001', '002'
             ]
@@ -29,7 +28,6 @@ export const BOOK = {
         {
             idx: 2,
             title: 'chapter two',
-            body: 'this is your second decision. you are doing well so far',
             decisions: [
                 '003', '004'
             ]

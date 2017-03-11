@@ -8,7 +8,7 @@
 	color: $dusty-gray;
 	font-family: $viewport;
   font-weight: 100;
-	text-align: center;
+	text-align: left;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -18,13 +18,22 @@
 	justify-content: space-between;
 
 	article {
-		text-align: center;
 		width: 100%;
+		margin-left: 4em;
 	}
 
 	&__toaster, &__navigation {
-		height: 1em;
-		margin: 1em;
+		height: 2em;
+		margin: 1em 0;
+	}
+
+	&__main {
+		height: 100%;
+	}
+
+	&__content {
+		position: relative;
+    bottom: -20em;
 	}
 
 	&__heading {
@@ -36,7 +45,7 @@
 		margin-bottom: 1em;
 	}
 
-	&__choices {
+	&__question {
 		margin-bottom: 1em;
 	}
 
@@ -49,6 +58,10 @@
 	}
 
 	&__pick {
-		margin: .2em 0;
+		margin: .6em 0;
+	}
+
+	&__next {
+		font-size: 150%;
 	}
 }

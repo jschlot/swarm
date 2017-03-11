@@ -36,6 +36,7 @@ const Gameview = (props) => {
                         ) : null }
                         { decision.options ? (
                             <div className="gameview__choices">
+                                <div className="gameview__question">{ decision.text }</div>
                                 { decision.options.map((obj, index) => (
                                     <div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
                                         {obj.text}
@@ -54,25 +55,15 @@ const Gameview = (props) => {
                         <h2 className="gameview__heading">
                             final results
                         </h2>
-                        <div className="gameview__body">
-                            recap
-                        </div>
                         <div className="gameview__choices">
                             { Object.keys(chapterReport).map(index => (
                                 <div key={index}>
-                                    <b>{chapterReport[index].title}</b>: {chapterReport[index].result}
-                                </div>
-                            )) }
-                        </div>
-                        <div className="gameview__choices">
-                            { Object.keys(scorecardReport).map(key => (
-                                <div key={key}>
-                                    <b>{key}</b>: {scorecardReport[key]}
+                                    <b>{chapterReport[index].title}</b>: {chapterReport[index].result} chapter ending
                                 </div>
                             )) }
                         </div>
                         <div className="gameview__results">
-                            { finalOutcome } story ending
+                            epilogue: { finalOutcome } ending
                         </div>
                     </div>
                 ) }
