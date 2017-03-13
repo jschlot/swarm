@@ -5,9 +5,9 @@
 	position: relative;
 	z-index: 1;
 	width: 100vw;
-  height: 80vh;
+  height: 100vh;
 	background-color: $black;
-	color: $dustygray;
+	color: $white;
 	font-family: $viewport;
 	text-align: left;
 	overflow: hidden;
@@ -22,10 +22,17 @@
 		text-align: right;
 	}
 
-	&__content {
+	&__main {
 		position: absolute;
     bottom: 0;
-		height: 200px;
+    background-color: rgba(0,0,0, 0.2);
+		height: 250px;
+		width: 100%;
+	}
+
+	&__content {
+		position: relative;
+		left: -100px;
 		padding: 20px;
 	}
 

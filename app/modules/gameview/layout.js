@@ -34,7 +34,7 @@ const Gameview = (props) => {
         <section className="gameview">
             <div className="gameview__underlay">
                 <video className="gameview__video-player" id="background-video" loop autoPlay>
-                    <source src="https://pixabay.com/en/videos/download/video-447_large.mp4" type="video/mp4" />
+                    <source src="https://pixabay.com/en/videos/download/video-5172_large.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
