@@ -19,19 +19,18 @@ class Panel extends Component {
         this.setState({
             opacity: 0
         });
-        this.interval = setInterval(this.handleTick.bind(this), this.props.timer);
+        this.interval = setTimeout(this.handleTick.bind(this), this.props.timer);
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval);
+        clearTimeout(this.interval);
     }
 
     handleTick() {
+        clearTimeout(this.interval);
         this.setState({
             opacity: 1
         });
-
-        clearInterval(this.interval);
     }
 
     render() {
