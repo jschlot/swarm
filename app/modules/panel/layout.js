@@ -8,7 +8,7 @@ const Layout = (props) => {
 
     const style = {
         opacity,
-        scale: opacity
+        marginRight: opacity * 100
     };
 
     const classes = classNames({

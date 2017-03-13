@@ -39,14 +39,14 @@ const Gameview = (props) => {
                 </video>
             </div>
             <article className="gameview__toaster">
-                <Panel>
+                <Panel timer="0">
                     <div className="gameview__message">{ message }</div>
                    { result ? <div className={resultClass}>{result} points earned</div> : null }
                </Panel>
             </article>
 
             <article className="gameview__main">
-                <Panel>
+                <Panel timer="800">
                 { heading ? (
                     <div className="gameview__content">
                         <h2 className="gameview__heading">

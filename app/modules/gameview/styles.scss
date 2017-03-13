@@ -12,6 +12,8 @@
 	text-align: left;
 
 	&__toaster {
+		position: relative;
+		right: -100px;
 		margin: 1em 0;
 		color: $white;
 		font-weight: 300;

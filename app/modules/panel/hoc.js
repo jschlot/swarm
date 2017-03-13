@@ -15,18 +15,19 @@ class Panel extends Component {
         this.setState({
             opacity: 0
         });
-        this.interval = setTimeout(this.handleTick.bind(this), 500);
+        this.interval = setInterval(this.handleTick.bind(this), this.props.timer);
     }
 
     componentWillUnmount() {
-        clearTimeout(this.interval);
+        clearInterval(this.interval);
     }
 
     handleTick() {
         this.setState({
             opacity: 1
         });
-        clearTimeout(this.interval);
+
+        clearInterval(this.interval);
     }
 
     render() {
@@ -41,7 +42,8 @@ class Panel extends Component {
 }
 
 Panel.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    timer: PropTypes.string.isRequired
 };
 
 export default Panel;
