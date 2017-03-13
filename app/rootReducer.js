@@ -1,10 +1,10 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import landing from './modules/gameview';
+import gameview from './modules/gameview';
 
 const rootReducer = combineReducers({
     routing,
-    [landing.constants.NAME]: landing.reducer
+    [gameview.constants.NAME]: gameview.reducer
 });
 
 export default rootReducer;

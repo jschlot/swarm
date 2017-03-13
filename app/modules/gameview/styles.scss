@@ -13,12 +13,11 @@
 	overflow: hidden;
 
 	&__toaster {
-		position: relative;
-		right: -100px;
+		position: absolute;
+		right: -170px;
 		margin: 1em 0;
 		color: $white;
 		font-weight: 300;
-		padding: 20px;
 		text-align: right;
 	}
 
@@ -32,8 +31,6 @@
 	}
 
 	&__content {
-		position: relative;
-		left: -100px;
 		padding: 20px;
 		line-height: 1.2em;
 	}

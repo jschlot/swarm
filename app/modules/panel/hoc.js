@@ -7,7 +7,7 @@ class Panel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            opacity: 0
+            toggle: 0
         };
     }
 
@@ -17,7 +17,7 @@ class Panel extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            opacity: 0
+            toggle: 0
         });
         this.interval = setTimeout(this.handleTick.bind(this), this.props.timer);
     }
@@ -29,15 +29,15 @@ class Panel extends Component {
     handleTick() {
         clearTimeout(this.interval);
         this.setState({
-            opacity: 1
+            toggle: 1
         });
     }
 
     render() {
         const { children, ...props } = this.props;
-        const { opacity } = this.state;
+        const { toggle } = this.state;
         return (
-            <Layout {...props} opacity={opacity}>
+            <Layout {...props} toggle={toggle}>
                 { children }
             </Layout>
         );

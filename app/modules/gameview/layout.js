@@ -47,59 +47,61 @@ const Gameview = (props) => {
             </article>
 
             <article className="gameview__main">
-                <Panel timer="800">
                 { heading ? (
                     <div className="gameview__content">
                         <h2 className="gameview__heading">
                             { heading }
                         </h2>
-                        { body ? (
-                            <div className="gameview__body">
-                                {body}
-                            </div>
-                        ) : null }
-                        { decision.options ? (
-                            <div className="gameview__choices">
-                                <div className="gameview__question">{ decision.text }</div>
-                                { decision.options.map((obj, index) => (
-                                    <div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
-                                        {obj.text}
-                                    </div>
-                                )) }
-                            </div>
-                        ) : null }
-                        { result && !decision.options ? (
-                            <div className="gameview___result">
-                                { chapterEnding }
-                            </div>
-                        ) : null }
-                        { !decision.options ? (
-                            <div className="gameview__next" onClick={onNext}>
-                                go on...
-                            </div>
-                        ) : null }
+                        <Panel timer="600">
+                            { body ? (
+                                <div className="gameview__body">
+                                    {body}
+                                </div>
+                            ) : null }
+                            { decision.options ? (
+                                <div className="gameview__choices">
+                                    <div className="gameview__question">{ decision.text }</div>
+                                    { decision.options.map((obj, index) => (
+                                        <div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
+                                            {obj.text}
+                                        </div>
+                                    )) }
+                                </div>
+                            ) : null }
+                            { result && !decision.options ? (
+                                <div className="gameview___result">
+                                    { chapterEnding }
+                                </div>
+                            ) : null }
+                            { !decision.options ? (
+                                <div className="gameview__next" onClick={onNext}>
+                                    go on...
+                                </div>
+                            ) : null }
+                        </Panel>
                     </div>
                 ) : (
                     <div className="gameview__content">
                         <h2 className="gameview__heading">
                             epilogue
                         </h2>
-                        <div className="gameview__subheading">
-                            { storyEnding }
-                        </div>
-                        <div className="gameview__next" onClick={onReset}>
-                            play again
-                        </div>
-                        <div className="gameview__results">
-                            { Object.keys(chapterReport).map(index => (
-                                <div key={index}>
-                                    <b>{chapterReport[index].title}</b>: {chapterReport[index].result} chapter ending
-                                </div>
-                            )) }
-                        </div>
+                        <Panel timer="600">
+                            <div className="gameview__subheading">
+                                { storyEnding }
+                            </div>
+                            <div className="gameview__next" onClick={onReset}>
+                                play again
+                            </div>
+                            <div className="gameview__results">
+                                { Object.keys(chapterReport).map(index => (
+                                    <div key={index}>
+                                        <b>{chapterReport[index].title}</b>: {chapterReport[index].result} chapter ending
+                                    </div>
+                                )) }
+                            </div>
+                        </Panel>
                     </div>
                 ) }
-                </Panel>
             </article>
         </section>
     );
