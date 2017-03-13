@@ -12,7 +12,8 @@ import {
     getScorecard,
     getFinalOutcome,
     getChapterEnding,
-    getStoryEnding
+    getStoryEnding,
+    getBackgroundVideo
 } from './selectors';
 
 import {
@@ -41,7 +42,8 @@ const mapStateToProps = (state) => {
         scorecardReport: getScorecard(state),
         finalOutcome: getFinalOutcome(state),
         chapterEnding: getChapterEnding(state, currentChapterIdx, result),
-        storyEnding: getStoryEnding(state, finalOutcome)
+        storyEnding: getStoryEnding(state, finalOutcome),
+        backgroundVideo: getBackgroundVideo(state)
     };
 };
 

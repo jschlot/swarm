@@ -8,6 +8,9 @@ export const getChapterProgress = state => gameProgress(state).chapter;
 export const getDecisionProgress = state => gameProgress(state).decision;
 
 const book = state => BOOK;
+
+export const getBackgroundVideo = state => book(state).theme.backgroundVideo;
+
 const getChapter = (state, chapterIndex) => book(state).chapter[chapterIndex];
 export const getChapterHeading = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).title;
 export const getChapterBody = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).body;

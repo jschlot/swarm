@@ -9,6 +9,9 @@ export const ALIGNMENTS = {
 };
 
 export const BOOK = {
+    theme: {
+        backgroundVideo: 'https://pixabay.com/en/videos/download/video-5172_large.mp4'
+    },
     chapter: [
         {
             title: 'with a whisper',
