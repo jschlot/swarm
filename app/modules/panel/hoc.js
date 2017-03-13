@@ -7,8 +7,12 @@ class Panel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            opacity: 1
+            opacity: 0
         };
+    }
+
+    componentDidMount() {
+        this.interval = setInterval(this.handleTick.bind(this), this.props.timer);
     }
 
     componentWillReceiveProps(nextProps) {
