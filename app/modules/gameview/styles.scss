@@ -10,6 +10,7 @@
 	color: $dustygray;
 	font-family: $viewport;
 	text-align: left;
+	overflow: hidden;
 
 	&__toaster {
 		position: relative;
