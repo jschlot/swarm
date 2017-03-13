@@ -12,24 +12,37 @@ class Panel extends Component {
     }
 
     componentDidMount() {
-        this.interval = setInterval(this.handleTick.bind(this), this.props.timer);
+        this.interval = setTimeout(this.handleTick.bind(this), this.props.timer);
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
             toggle: 0
         });
+
         this.interval = setTimeout(this.handleTick.bind(this), this.props.timer);
     }
 
     componentWillUnmount() {
         clearTimeout(this.interval);
+        clearTimeout(this.remover);
     }
 
     handleTick() {
         clearTimeout(this.interval);
         this.setState({
             toggle: 1
+        });
+
+        if (this.props.isTemporary) {
+            this.remover = setTimeout(this.handleRemove.bind(this), 3000);
+        }
+    }
+
+    handleRemove() {
+        clearTimeout(this.remover);
+        this.setState({
+            toggle: 0
         });
     }
 
@@ -46,7 +59,8 @@ class Panel extends Component {
 
 Panel.propTypes = {
     children: PropTypes.node.isRequired,
-    timer: PropTypes.string.isRequired
+    timer: PropTypes.string.isRequired,
+    isTemporary: PropTypes.bool
 };
 
 export default Panel;

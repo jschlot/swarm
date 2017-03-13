@@ -40,7 +40,7 @@ const Gameview = (props) => {
                 </video>
             </div>
             <article className="gameview__toaster">
-                <Panel timer="0">
+                <Panel timer="200" isTemporary>
                     <div className="gameview__message">{ message }</div>
                    { result ? <div className={resultClass}>{result} points earned</div> : null }
                </Panel>
