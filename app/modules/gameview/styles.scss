@@ -106,7 +106,7 @@
 		top: 0px;
 		z-index: -1000;
 		overflow:hidden;
-		filter: blur(10px) brightness(0.8);
+		filter: blur(10px) brightness(0.8) grayscale(50%);
 	}
 
 	&__video-player {
