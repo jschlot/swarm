@@ -3,10 +3,19 @@ import React, { PropTypes, Component } from 'react';
 import Layout from './layout';
 
 class Panel extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            opacity: 1
+        };
+    }
+
     componentWillReceiveProps(nextProps) {
-        if (this.props.canClose !== nextProps.canClose && nextProps.canClose) {
-            this.interval = setTimeout(this.handleTick.bind(this), 5000);
-        }
+        this.setState({
+            opacity: 0
+        });
+        this.interval = setTimeout(this.handleTick.bind(this), 500);
     }
 
     componentWillUnmount() {
@@ -14,16 +23,17 @@ class Panel extends Component {
     }
 
     handleTick() {
-        if (this.props.canClose) {
-            this.props.onClose();
-        }
+        this.setState({
+            opacity: 1
+        });
         clearTimeout(this.interval);
     }
 
     render() {
         const { children, ...props } = this.props;
+        const { opacity } = this.state;
         return (
-            <Layout {...props}>
+            <Layout {...props} opacity={opacity}>
                 { children }
             </Layout>
         );
@@ -31,9 +41,7 @@ class Panel extends Component {
 }
 
 Panel.propTypes = {
-    children: PropTypes.node.isRequired,
-    onClose: PropTypes.func.isRequired,
-    canClose: PropTypes.bool
+    children: PropTypes.node.isRequired
 };
 
 export default Panel;

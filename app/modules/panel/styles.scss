@@ -1,4 +1,6 @@
 
 .panel {
-	transition: all ease-in 500ms;
+	&.show {
+		transition: all ease-in 300ms 200ms;
+	}
 }

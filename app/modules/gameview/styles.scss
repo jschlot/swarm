@@ -12,13 +12,11 @@
 	text-align: left;
 
 	&__toaster {
-		height: 75px;
 		margin: 1em 0;
 		color: $white;
 		font-weight: 300;
-		display: flex;
-		justify-content: space-between;
 		padding: 20px;
+		text-align: right;
 	}
 
 	&__content {

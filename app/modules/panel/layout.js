@@ -4,16 +4,29 @@ import classNames from 'classnames';
 import { panel } from './styles.scss';
 
 const Layout = (props) => {
-    const { children } = props;
+    const { children, opacity } = props;
+
+    const style = {
+        opacity,
+        scale: opacity
+    };
+
+    const classes = classNames({
+        'panel': true,
+        'show': opacity
+    });
+
+
     return (
-			<div className="panel">
-				{ children }
-			</div>
+        <div className={classes} style={style}>
+            { children }
+        </div>
     );
 };
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    opacity: PropTypes.number
 };
 
 export default Layout;
