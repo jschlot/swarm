@@ -85,7 +85,7 @@ const Gameview = (props) => {
                         <h2 className="gameview__heading">
                             epilogue
                         </h2>
-                        <Panel timer="600">
+                        <Panel timer="800">
                             <div className="gameview__subheading">
                                 { storyEnding }
                             </div>
