@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { gameview } from './styles.scss';
 
+import Panel from '../panel/container';
+
 const Gameview = (props) => {
     const {
         message,
@@ -42,6 +44,7 @@ const Gameview = (props) => {
             </article>
 
             <article className="gameview__main">
+                <Panel>
                 { heading ? (
                     <div className="gameview__content">
                         <h2 className="gameview__heading">
@@ -93,6 +96,7 @@ const Gameview = (props) => {
                         </div>
                     </div>
                 ) }
+                </Panel>
             </article>
         </section>
     );

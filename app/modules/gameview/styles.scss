@@ -12,7 +12,7 @@
 	text-align: left;
 
 	&__toaster {
-		height: 2em;
+		height: 75px;
 		margin: 1em 0;
 		color: $white;
 		font-weight: 300;
@@ -21,15 +21,10 @@
 		padding: 20px;
 	}
 
-	&__main {
-		position: relative;
-		height: 100%;
-	}
-
 	&__content {
 		position: absolute;
     bottom: 0;
-		height: 10em;
+		height: 200px;
 		padding: 20px;
 	}
 
