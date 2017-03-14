@@ -39,23 +39,18 @@ const Gameview = (props) => {
             <div className="gameview__underlay">
                 <video className="gameview__video-player" id="background-video" loop autoPlay>
                     <source src={backgroundVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
                 </video>
             </div>
 
             <div className="gameview__toaster">
-                <Panel timer="200" isTemporary>
+                <Panel timer="200">
                     <div className="gameview__message">{ message }</div>
                    { result ? <div className={resultClass}>{result} points earned</div> : null }
                </Panel>
             </div>
 
             <div className="gameview__main">
-                { heading ? (
-                    <Chapter {...props} />
-                ) : (
-                    <Epilogue {...props} />
-                ) }
+                { heading ? <Chapter {...props} /> : <Epilogue {...props} /> }
             </div>
         </div>
     );
