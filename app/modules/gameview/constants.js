@@ -45,7 +45,7 @@ export const BOOK = {
             endings: {}
         }
     ],
-    outcomes: {
+    outcome: {
         [ALIGNMENTS.EVIL]: 'sadly, the little girl dies suddenly. you never even got to know her name.',
         default: 'you make it to an army hospital, and back to civilization.',
     },

@@ -60,7 +60,7 @@ const Gameview = (props) => {
 Gameview.propTypes = {
     message: PropTypes.string,
     heading: PropTypes.string,
-    body: PropTypes.string,
+    body: PropTypes.array,
     finalOutcome: PropTypes.string,
     decision: PropTypes.object,
     currentChapterIdx: PropTypes.number,

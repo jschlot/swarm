@@ -53,7 +53,7 @@ const Chapter = (props) => {
 
 Chapter.propTypes = {
     heading: PropTypes.string,
-    body: PropTypes.string,
+    body: PropTypes.array,
     decision: PropTypes.object,
     currentChapterIdx: PropTypes.number,
     result: PropTypes.string,

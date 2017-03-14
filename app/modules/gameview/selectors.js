@@ -23,8 +23,8 @@ export const getChapterEnding = (state, chapterIndex, alignment) => {
 
 export const getStoryEnding = (state, alignment) => {
     const story = book(state);
-    const defaultValue = story.outcomes.default || '';
-    return (alignment && story.outcomes[alignment]) ? story.outcomes[alignment] : defaultValue;
+    const defaultValue = story.outcome.default || '';
+    return (alignment && story.outcome[alignment]) ? story.outcome[alignment] : defaultValue;
 };
 
 const getDecision = (state, index) => book(state).decision[index];
