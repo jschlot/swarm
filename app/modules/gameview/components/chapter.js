@@ -28,27 +28,24 @@ const Chapter = (props) => {
 							) : null }
 
 							{ decision.options ? (
-									<div className="gameview__choices">
-											<div className="gameview__question">{ decision.text }</div>
-											{ decision.options.map((obj, index) => (
-													<div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
-															{obj.text}
-													</div>
-											)) }
-									</div>
-							) : null }
-
-							{ result && !decision.options ? (
+								<div className="gameview__choices">
+										<div className="gameview__question">{ decision.text }</div>
+										{ decision.options.map((obj, index) => (
+												<div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
+														{obj.text}
+												</div>
+										)) }
+								</div>
+							) : (
+								<div>
 									<div className="gameview___result">
 											{ chapterEnding }
 									</div>
-							) : null }
-
-							{ !decision.options ? (
 									<div className="gameview__next" onClick={onNext}>
 											go on...
 									</div>
-							) : null }
+								</div>
+							) }
 					</Panel>
 			</div>
     );
