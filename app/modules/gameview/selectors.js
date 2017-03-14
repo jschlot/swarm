@@ -5,11 +5,6 @@ const root = state => state[NAME];
 // Toaster
 export const getMessage = state => root(state).toaster;
 
-// Navigation
-const gameProgress = state => root(state).progress;
-export const getChapterProgress = state => gameProgress(state).chapter;
-export const getDecisionProgress = state => gameProgress(state).decision;
-
 // Story, Chapters, Decisions
 const book = state => BOOK;
 
@@ -36,6 +31,12 @@ const getDecision = (state, index) => book(state).decision[index];
 export const getDecisionByChapter = (state, chapterIndex, index) => {
     return getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
 };
+
+// Navigation
+const gameProgress = state => root(state).progress;
+export const getChapterProgress = state => gameProgress(state).chapter;
+export const getDecisionProgress = state => gameProgress(state).decision;
+export const getStoryMode = state => (getChapterProgress(state) > getChapter.length) ? 'epilogue' : 'chapter';
 
 // Choices & Reports
 const choices = state => root(state).choices;

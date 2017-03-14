@@ -23,7 +23,8 @@ const Gameview = (props) => {
         onNext,
         onReset,
         storyEnding,
-        backgroundVideo
+        backgroundVideo,
+        storyMode
     } = props;
 
     // result
@@ -50,7 +51,7 @@ const Gameview = (props) => {
             </div>
 
             <div className="gameview__main">
-                { heading ? <Chapter {...props} /> : <Epilogue {...props} /> }
+                { storyMode === 'chapter' ? <Chapter {...props} /> : <Epilogue {...props} /> }
             </div>
         </div>
     );
@@ -71,7 +72,8 @@ Gameview.propTypes = {
     onReset: PropTypes.func,
     chapterEnding: PropTypes.string,
     storyEnding: PropTypes.string,
-    backgroundVideo: PropTypes.string
+    backgroundVideo: PropTypes.string,
+    storyMode: PropTypes.string
 };
 
 export default Gameview;

@@ -10,9 +10,18 @@ export const ALIGNMENTS = {
 
 export const BOOK = {
     theme: {
-        backgroundVideo: 'https://pixabay.com/en/videos/download/video-447_medium.mp4'
+        backgroundVideo: 'https://pixabay.com/en/videos/download/video-6973_source.mp4'
     },
     chapter: [
+        {
+            title: 'with a whisper',
+            body: [
+                'darkness, a vague sound, almost like a hum, but deep inside you. ',
+                'your head vibrates and throbs painfully'
+            ],
+            decisions: [],
+            endings: {}
+        },
         {
             title: 'with a whisper',
             decisions: ['001'],
