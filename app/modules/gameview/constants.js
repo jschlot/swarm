@@ -10,7 +10,7 @@ export const ALIGNMENTS = {
 
 export const BOOK = {
     theme: {
-        backgroundVideo: 'https://pixabay.com/en/videos/download/video-6973_source.mp4'
+        backgroundVideo: 'https://pixabay.com/en/videos/download/video-447_medium.mp4'
     },
     chapter: [
         {
