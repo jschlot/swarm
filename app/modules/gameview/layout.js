@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { gameview } from './styles.scss';
 
+import Epilogue from './components/epilogue';
+import Chapter from './components/chapter';
+
 import Panel from '../panel/container';
 
 const Gameview = (props) => {
@@ -32,78 +35,29 @@ const Gameview = (props) => {
     });
 
     return (
-        <section className="gameview">
+        <div className="gameview">
             <div className="gameview__underlay">
                 <video className="gameview__video-player" id="background-video" loop autoPlay>
                     <source src={backgroundVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <article className="gameview__toaster">
+
+            <div className="gameview__toaster">
                 <Panel timer="200" isTemporary>
                     <div className="gameview__message">{ message }</div>
                    { result ? <div className={resultClass}>{result} points earned</div> : null }
                </Panel>
-            </article>
+            </div>
 
-            <article className="gameview__main">
+            <div className="gameview__main">
                 { heading ? (
-                    <div className="gameview__content">
-                        <h2 className="gameview__heading">
-                            { heading }
-                        </h2>
-                        <Panel timer="600">
-                            { body ? (
-                                <div className="gameview__body">
-                                    {body}
-                                </div>
-                            ) : null }
-                            { decision.options ? (
-                                <div className="gameview__choices">
-                                    <div className="gameview__question">{ decision.text }</div>
-                                    { decision.options.map((obj, index) => (
-                                        <div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
-                                            {obj.text}
-                                        </div>
-                                    )) }
-                                </div>
-                            ) : null }
-                            { result && !decision.options ? (
-                                <div className="gameview___result">
-                                    { chapterEnding }
-                                </div>
-                            ) : null }
-                            { !decision.options ? (
-                                <div className="gameview__next" onClick={onNext}>
-                                    go on...
-                                </div>
-                            ) : null }
-                        </Panel>
-                    </div>
+                    <Chapter {...props} />
                 ) : (
-                    <div className="gameview__content">
-                        <h2 className="gameview__heading">
-                            epilogue
-                        </h2>
-                        <Panel timer="800">
-                            <div className="gameview__subheading">
-                                { storyEnding }
-                            </div>
-                            <div className="gameview__next" onClick={onReset}>
-                                play again
-                            </div>
-                            <div className="gameview__results">
-                                { Object.keys(chapterReport).map(index => (
-                                    <div key={index}>
-                                        <b>{chapterReport[index].title}</b>: {chapterReport[index].result} chapter ending
-                                    </div>
-                                )) }
-                            </div>
-                        </Panel>
-                    </div>
+                    <Epilogue {...props} />
                 ) }
-            </article>
-        </section>
+            </div>
+        </div>
     );
 };
 

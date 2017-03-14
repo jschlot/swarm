@@ -29,8 +29,9 @@ export const getStoryEnding = (state, alignment) => {
 };
 
 const getDecision = (state, index) => book(state).decision[index];
-export const getDecisionByChapter = (state, chapterIndex, index) => getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
-
+export const getDecisionByChapter = (state, chapterIndex, index) => {
+    return getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
+};
 
 const choices = state => root(state).choices;
 
@@ -38,8 +39,7 @@ export const getResult = (state, chapterIdx) => {
     if (!choices(state)) return '';
 
     const countedAlignments = choices(state).reduce((alignments, obj) => {
-        const chapter = obj.chapter;
-        if (chapter !== chapterIdx) return alignments;
+        if (obj.chapter !== chapterIdx) return alignments;
         const key = obj.answer.alignment;
         if (key in alignments) {
             alignments[key]++;
@@ -49,13 +49,13 @@ export const getResult = (state, chapterIdx) => {
         return alignments;
     }, {});
 
-    let report = '';
-
     if (Object.keys(countedAlignments).length) {
-        report = Object.keys(countedAlignments).reduce((a, b) => { return countedAlignments[a] > countedAlignments[b] ? a : b; });
+        return Object.keys(countedAlignments).reduce((a, b) => {
+            return countedAlignments[a] > countedAlignments[b] ? a : b;
+        });
     }
 
-    return report;
+    return '';
 };
 
 export const getAllResultsPerChapter = (state) => {
@@ -75,7 +75,7 @@ export const getAllResultsPerChapter = (state) => {
 export const getScorecard = (state) => {
     if (!choices(state)) return '';
 
-    const countedAlignments = choices(state).reduce((alignments, obj) => {
+    return choices(state).reduce((alignments, obj) => {
         const key = obj.answer.alignment;
         if (key in alignments) {
             alignments[key]++;
@@ -84,8 +84,6 @@ export const getScorecard = (state) => {
         }
         return alignments;
     }, {});
-
-    return countedAlignments;
 };
 
 export const getFinalOutcome = (state) => {
@@ -101,11 +99,11 @@ export const getFinalOutcome = (state) => {
         return alignments;
     }, {});
 
-    let report = '';
-
     if (Object.keys(countedAlignments).length) {
-        report = Object.keys(countedAlignments).reduce((a, b) => { return countedAlignments[a] > countedAlignments[b] ? a : b; });
+        return Object.keys(countedAlignments).reduce((a, b) => {
+            return countedAlignments[a] > countedAlignments[b] ? a : b;
+        });
     }
 
-    return report;
+    return '';
 };
