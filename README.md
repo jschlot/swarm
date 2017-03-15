@@ -6,7 +6,7 @@ The idea started as a quiz, like many on Buzzfeed. I wanted to make a system tha
 and then reduce these choices down to a single result. A user might come in, choose some answers to a set of questions,
 and I should be able to tell them which character from Star Wars they are like.
 
-![Swarm UI](https://github.com/jschlot/airplane-the-game/blob/master/img/titles1/airplaneSplash.png "Swarm UI")
+![Swarm UI](./swarm.png "Swarm UI")
 
 
 ## Installation
