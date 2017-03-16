@@ -36,7 +36,7 @@ export const getDecisionByChapter = (state, chapterIndex, index) => {
 const gameProgress = state => root(state).progress;
 export const getChapterProgress = state => gameProgress(state).chapter;
 export const getDecisionProgress = state => gameProgress(state).decision;
-export const getStoryMode = state => (getChapterProgress(state) > getChapter.length) ? 'epilogue' : 'chapter';
+export const getStoryMode = state => (getChapterProgress(state) === book(state).chapter.length) ? 'epilogue' : 'chapter';
 
 // Choices & Reports
 const choices = state => root(state).choices;

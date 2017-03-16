@@ -24,24 +24,24 @@ export const BOOK = {
         },
         {
             title: 'with a whisper',
-            decisions: ['001'],
+            decisions: ['001', '002'],
             endings: {
                 [ALIGNMENTS.GOOD]: 'thanks mister! i must have fallen asleep while waiting for my parents.',
-                default: 'the little girl wakes up, and walks up to you. she tugs at your sleeve as if the wants to thank you for being there.'
+                default: 'that\'s ok, my mommy taught me to wait for supper.'
             }
         },
         {
             title: 'an unexpected friend',
-            decisions: ['002'],
-            endings: {
-                [ALIGNMENTS.EVIL]: 'that\'s ok, my mommy taught me to wait for supper.',
-                [ALIGNMENTS.GOOD]: 'thank you, mister. what is your name? let\'s be friends.',
-            }
+            body: [
+                'the little girl wakes up, and walks up to you. she tugs at your sleeve as if the wants to thank you for being there.'
+            ],
+            decisions: [],
+            endings: {}
         },
         {
             title: 'run for your life',
             body: 'hand in hand you run through a grassy field.',
-            decisions: [],
+            decisions: ['003'],
             endings: {}
         }
     ],
@@ -52,7 +52,10 @@ export const BOOK = {
     decision: {
         '001': {
             id: '001',
-            text: 'you open your eyes, and lift yourself off the ground. looking around, you see a small child curled against the wall, shivering.',
+            text: [
+                'you open your eyes, and lift yourself off the ground. ',
+                'looking around, you see a small child curled against the wall, shivering.'
+            ],
             options: [
                 {
                     text: 'approach child',
@@ -88,24 +91,6 @@ export const BOOK = {
                 },
                 {
                     text: 'dark',
-                    alignment: ALIGNMENTS.EVIL
-                }
-            ]
-        },
-        '004': {
-            id: '004',
-            text: 'what is your ideal holiday?',
-            options: [
-                {
-                    text: 'beach',
-                    alignment: ALIGNMENTS.GOOD
-                },
-                {
-                    text: 'forest',
-                    alignment: ALIGNMENTS.NEUTRAL
-                },
-                {
-                    text: 'desert',
                     alignment: ALIGNMENTS.EVIL
                 }
             ]
