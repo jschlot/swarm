@@ -14,7 +14,7 @@ export const BOOK = {
     },
     chapter: [
         {
-            title: 'with a whisper',
+            title: 'where am i?',
             body: [
                 'darkness, a vague sound, almost like a hum, but deep inside you. ',
                 'your head vibrates and throbs painfully'
@@ -33,7 +33,8 @@ export const BOOK = {
         {
             title: 'an unexpected friend',
             body: [
-                'the little girl wakes up, and walks up to you. she tugs at your sleeve as if the wants to thank you for being there.'
+                'the little girl wakes up, and walks up to you. ',
+                'she tugs at your sleeve as if the wants to thank you for being there.'
             ],
             decisions: [],
             endings: {}
