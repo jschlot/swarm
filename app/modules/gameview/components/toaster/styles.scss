@@ -1,0 +1,25 @@
+@import '../../../core/components/colors';
+
+.toaster {
+	position: absolute;
+	right: -170px;
+	margin: 1em 0;
+	color: $white;
+	font-weight: 300;
+	text-align: right;
+
+	&__xp {
+		&--good {
+			color: $curiousblue;
+		}
+		&--lawful {
+			color: $mountainmeadow;
+		}
+		&--chaotic {
+			color: $buttercup;
+		}
+		&--evil {
+			color: $tallpoppy;
+		}
+	}
+}

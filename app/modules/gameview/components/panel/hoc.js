@@ -25,24 +25,12 @@ class Panel extends Component {
 
     componentWillUnmount() {
         clearTimeout(this.interval);
-        clearTimeout(this.remover);
     }
 
     handleTick() {
         clearTimeout(this.interval);
         this.setState({
             toggle: 1
-        });
-
-        if (this.props.isTemporary) {
-            this.remover = setTimeout(this.handleRemove.bind(this), 3000);
-        }
-    }
-
-    handleRemove() {
-        clearTimeout(this.remover);
-        this.setState({
-            toggle: 0
         });
     }
 

@@ -1,0 +1,48 @@
+@import '../../../core/components/colors';
+
+.chapter {
+	padding: 20px;
+
+	&__heading {
+		font-weight: 100;
+		font-size: 50px;
+		margin-bottom: 10px;
+		color: $white;
+		line-height: 1em;
+	}
+
+	&__body {
+		margin-bottom: 1em;
+		font-style: italic;
+	}
+
+	&__question {
+		margin-bottom: 1em;
+	}
+
+	&__pick {
+		cursor: pointer;
+		margin: .6em 0;
+		
+		&:before {
+			content: '> ';
+		}
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	&__next {
+		margin-top: 1em;
+		cursor: pointer;
+
+		&:before {
+			content: '> ';
+		}
+
+		&:hover {
+			color: $white;
+		}
+	}
+}

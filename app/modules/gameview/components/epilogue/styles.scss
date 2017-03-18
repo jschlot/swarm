@@ -1,0 +1,27 @@
+@import '../../../core/components/colors';
+
+.epilogue {
+	padding: 20px;
+
+	&__heading {
+		font-weight: 100;
+		font-size: 50px;
+		margin-bottom: 10px;
+		color: $white;
+		line-height: 1em;
+	}
+
+	&__next {
+		margin-top: 1em;
+		cursor: pointer;
+
+		&:before {
+			content: '> ';
+		}
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+}

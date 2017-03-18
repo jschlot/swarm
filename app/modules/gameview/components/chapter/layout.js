@@ -1,47 +1,48 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import Panel from '../../panel/hoc';
+import { chapter } from './styles.scss';
+
+import Panel from '../panel/hoc';
 
 const Chapter = (props) => {
     const {
+        currentChapterIdx,
         heading,
         body,
         decision,
-        currentChapterIdx,
-        result,
         chapterEnding,
         onChoice,
         onNext
     } = props;
 
     return (
-			<div className="gameview__content">
-					<h2 className="gameview__heading">
+			<div className="chapter">
+					<h2 className="chapter__heading">
 							{ heading }
 					</h2>
 					<Panel timer="600">
 							{ body ? (
-									<div className="gameview__body">
+									<div className="chapter__body">
 											{body}
 									</div>
 							) : null }
 
 							{ decision.options ? (
-								<div className="gameview__choices">
-										<div className="gameview__question">{ decision.text }</div>
+								<div className="chapter__choices">
+										<div className="chapter__question">{ decision.text }</div>
 										{ decision.options.map((obj, index) => (
-												<div key={index} className="gameview__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
+												<div key={index} className="chapter__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
 														{obj.text}
 												</div>
 										)) }
 								</div>
 							) : (
 								<div>
-									<div className="gameview___result">
+									<div className="chapter___result">
 											{ chapterEnding }
 									</div>
-									<div className="gameview__next" onClick={onNext}>
+									<div className="chapter__next" onClick={onNext}>
 											go on...
 									</div>
 								</div>
@@ -52,11 +53,10 @@ const Chapter = (props) => {
 };
 
 Chapter.propTypes = {
+    currentChapterIdx: PropTypes.number,
     heading: PropTypes.string,
     body: PropTypes.array,
     decision: PropTypes.object,
-    currentChapterIdx: PropTypes.number,
-    result: PropTypes.string,
     chapterEnding: PropTypes.string,
     onChoice: PropTypes.func,
     onNext: PropTypes.func

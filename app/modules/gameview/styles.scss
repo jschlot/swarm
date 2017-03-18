@@ -12,90 +12,6 @@
 	text-align: left;
 	overflow: hidden;
 
-	&__toaster {
-		position: absolute;
-		right: -170px;
-		margin: 1em 0;
-		color: $white;
-		font-weight: 300;
-		text-align: right;
-	}
-
-	&__main {
-		position: absolute;
-    bottom: 0;
-    min-height: 200px;
-		width: 100%;
-    background-color: rgba(0,0,0, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	&__content {
-		padding: 20px;
-	}
-
-	&__heading {
-		font-weight: 100;
-		font-size: 50px;
-		margin-bottom: 10px;
-		color: $white;
-		line-height: 1em;
-	}
-
-	&__body {
-		margin-bottom: 1em;
-		font-style: italic;
-	}
-
-	&__question {
-		margin-bottom: 1em;
-	}
-
-	&__pick {
-		cursor: pointer;
-		margin: .6em 0;
-		
-		&:before {
-			content: '> ';
-		}
-
-		&:hover {
-			color: $white;
-		}
-	}
-
-	&__results {
-		display: none;
-	}
-
-	&__xp {
-		&--good {
-			color: $curiousblue;
-		}
-		&--lawful {
-			color: $mountainmeadow;
-		}
-		&--chaotic {
-			color: $buttercup;
-		}
-		&--evil {
-			color: $tallpoppy;
-		}
-	}
-
-	&__next {
-		margin-top: 1em;
-		cursor: pointer;
-
-		&:before {
-			content: '> ';
-		}
-
-		&:hover {
-			color: $white;
-		}
-	}
-
 	&__underlay {
 		width: 100%;
 		height: 100%;
@@ -118,5 +34,14 @@
 		bottom:0;
 		left:0;	
 		object-fit: cover;
+	}
+
+	&__pages {
+		position: absolute;
+    bottom: 0;
+    min-height: 200px;
+		width: 100%;
+    background-color: rgba(0,0,0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 	}
 }
