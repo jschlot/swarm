@@ -5,7 +5,7 @@ import { gameview } from './styles.scss';
 import Epilogue from './components/epilogue';
 import Chapter from './components/chapter';
 
-import Panel from '../panel/container';
+import Panel from '../panel/hoc';
 
 const Gameview = (props) => {
     const {
