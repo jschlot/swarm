@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { panel } from './styles.scss';
 
 const Layout = (props) => {
-    const { children, toggle } = props;
+    const { children, toggle, position } = props;
 
     const style = {
         opacity: toggle,
-        marginRight: toggle * 100,
-        marginLeft: toggle * 100
+        marginRight: (position !== 'right') ? 0 : toggle * 100,
+        marginLeft: (position === 'right') ? 0 : toggle * 100
     };
 
     const classes = classNames({
@@ -26,7 +26,8 @@ const Layout = (props) => {
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
-    toggle: PropTypes.number
+    toggle: PropTypes.number,
+    position: PropTypes.string
 };
 
 export default Layout;

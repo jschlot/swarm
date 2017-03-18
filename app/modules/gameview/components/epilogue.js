@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-import Panel from '../../panel/container';
+import Panel from '../../panel/hoc';
 
 const Epilogue = (props) => {
     const {

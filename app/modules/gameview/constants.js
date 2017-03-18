@@ -41,7 +41,9 @@ export const BOOK = {
         },
         {
             title: 'run for your life',
-            body: 'hand in hand you run through a grassy field.',
+            body: [
+                'hand in hand you run through a grassy field.'
+            ],
             decisions: ['003'],
             endings: {}
         }

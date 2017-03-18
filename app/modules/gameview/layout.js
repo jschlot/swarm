@@ -10,19 +10,7 @@ import Panel from '../panel/hoc';
 const Gameview = (props) => {
     const {
         message,
-        heading,
-        body,
-        decision,
-        currentChapterIdx,
-        finalOutcome,
         result,
-        chapterReport,
-        scorecardReport,
-        chapterEnding,
-        onChoice,
-        onNext,
-        onReset,
-        storyEnding,
         backgroundVideo,
         storyMode
     } = props;
@@ -44,7 +32,7 @@ const Gameview = (props) => {
             </div>
 
             <div className="gameview__toaster">
-                <Panel timer="200">
+                <Panel timer="200" position="right" isTemporary>
                     <div className="gameview__message">{ message }</div>
                    { result ? <div className={resultClass}>{result} points earned</div> : null }
                </Panel>
@@ -59,19 +47,7 @@ const Gameview = (props) => {
 
 Gameview.propTypes = {
     message: PropTypes.string,
-    heading: PropTypes.string,
-    body: PropTypes.array,
-    finalOutcome: PropTypes.string,
-    decision: PropTypes.object,
-    currentChapterIdx: PropTypes.number,
     result: PropTypes.string,
-    chapterReport: PropTypes.object,
-    scorecardReport: PropTypes.object,
-    onChoice: PropTypes.func,
-    onNext: PropTypes.func,
-    onReset: PropTypes.func,
-    chapterEnding: PropTypes.string,
-    storyEnding: PropTypes.string,
     backgroundVideo: PropTypes.string,
     storyMode: PropTypes.string
 };

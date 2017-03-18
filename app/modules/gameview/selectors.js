@@ -48,7 +48,7 @@ export const getResult = (state, chapterIdx) => {
         if (obj.chapter !== chapterIdx) return alignments;
         const key = obj.answer.alignment;
         if (key in alignments) {
-            alignments[key]++;
+            alignments[key] = alignments[key] + (1 * obj.answer.weight);
         } else {
             alignments[key] = 1;
         }
@@ -84,7 +84,7 @@ export const getScorecard = (state) => {
     return choices(state).reduce((alignments, obj) => {
         const key = obj.answer.alignment;
         if (key in alignments) {
-            alignments[key]++;
+            alignments[key] = alignments[key] + (1 * obj.answer.weight);
         } else {
             alignments[key] = 1;
         }
