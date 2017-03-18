@@ -8,8 +8,13 @@ import Panel from '../panel/hoc';
 const Epilogue = (props) => {
     const {
         onReset,
-        storyEnding
+        storyEnding,
+		alignmentScore,
+		allResultsPerChapter
     } = props;
+
+    console.log(alignmentScore);
+    console.log(allResultsPerChapter);
 
     return (
 		<div className="epilogue">
@@ -20,6 +25,8 @@ const Epilogue = (props) => {
 				<div className="epilogue__story-ending">
 					{ storyEnding }
 				</div>
+			</Panel>
+			<Panel timer="5000">
 				<div className="epilogue__next" onClick={onReset}>
 					play again
 				</div>
@@ -30,7 +37,9 @@ const Epilogue = (props) => {
 
 Epilogue.propTypes = {
     onReset: PropTypes.func,
-    storyEnding: PropTypes.string
+    storyEnding: PropTypes.string,
+    alignmentScore: PropTypes.object,
+    allResultsPerChapter: PropTypes.object
 };
 
 export default Epilogue;

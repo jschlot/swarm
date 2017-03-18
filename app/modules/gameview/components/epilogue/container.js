@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 
 import {
     getFinalOutcome,
-    getStoryEnding
+    getStoryEnding,
+    getAlignmentScore,
+    getAllResultsPerChapter
 } from '../../selectors';
 
 import {
@@ -15,7 +17,9 @@ const mapStateToProps = (state) => {
     const finalOutcome = getFinalOutcome(state);
 
     return {
-        storyEnding: getStoryEnding(state, finalOutcome)
+        storyEnding: getStoryEnding(state, finalOutcome),
+        alignmentScore: getAlignmentScore(state),
+        allResultsPerChapter: getAllResultsPerChapter(state)
     };
 };
 

@@ -48,7 +48,7 @@ export const getResult = (state, chapterIdx) => {
         if (obj.chapter !== chapterIdx) return alignments;
         const key = obj.answer.alignment;
         if (key in alignments) {
-            alignments[key] = alignments[key] + (1 * obj.answer.weight);
+            alignments[key] = alignments[key] + obj.answer.weight;
         } else {
             alignments[key] = 1;
         }
@@ -78,15 +78,21 @@ export const getAllResultsPerChapter = (state) => {
     return report;
 };
 
-export const getScorecard = (state) => {
+export const getAlignmentScore = (state) => {
     if (!choices(state)) return '';
 
     return choices(state).reduce((alignments, obj) => {
         const key = obj.answer.alignment;
         if (key in alignments) {
-            alignments[key] = alignments[key] + (1 * obj.answer.weight);
+            alignments[key] = {
+                count: alignments[key].count + 1,
+                sum: alignments[key].sum + obj.answer.weight
+            };
         } else {
-            alignments[key] = 1;
+            alignments[key] = {
+                count: 1,
+                sum: obj.answer.weight
+            };
         }
         return alignments;
     }, {});
@@ -95,7 +101,7 @@ export const getScorecard = (state) => {
 export const getFinalOutcome = (state) => {
     if (!choices(state)) return '';
 
-    const countedAlignments = getScorecard(state);
+    const countedAlignments = getAlignmentScore(state);
 
     if (Object.keys(countedAlignments).length) {
         return Object.keys(countedAlignments).reduce((a, b) => {

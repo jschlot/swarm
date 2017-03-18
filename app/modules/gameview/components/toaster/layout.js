@@ -13,7 +13,7 @@ const Toaster = (props) => {
 
     // result
     const resultClass = classNames({
-        'toaster__xp': result === 'good',
+        'toaster__xp--good': result === 'good',
         'toaster__xp--evil': result === 'evil',
         'toaster__xp--lawful': result === 'lawful',
         'toaster__xp--chaotic': result === 'chaotic'
