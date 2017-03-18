@@ -95,15 +95,7 @@ export const getScorecard = (state) => {
 export const getFinalOutcome = (state) => {
     if (!choices(state)) return '';
 
-    const countedAlignments = choices(state).reduce((alignments, obj) => {
-        const key = obj.answer.alignment;
-        if (key in alignments) {
-            alignments[key]++;
-        } else {
-            alignments[key] = 1;
-        }
-        return alignments;
-    }, {});
+    const countedAlignments = getScorecard(state);
 
     if (Object.keys(countedAlignments).length) {
         return Object.keys(countedAlignments).reduce((a, b) => {

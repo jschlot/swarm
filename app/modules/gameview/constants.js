@@ -60,11 +60,13 @@ export const BOOK = {
             options: [
                 {
                     text: 'approach child',
-                    alignment: ALIGNMENTS.GOOD
+                    alignment: ALIGNMENTS.LAWFUL,
+                    weight: 2
                 },
                 {
                     text: 'find an exit, fast',
-                    alignment: ALIGNMENTS.CHAOTIC
+                    alignment: ALIGNMENTS.CHAOTIC,
+                    weight: 1
                 }
             ]
         },
@@ -74,11 +76,13 @@ export const BOOK = {
             options: [
                 {
                     text: 'offer her your last bit of food',
-                    alignment: ALIGNMENTS.GOOD
+                    alignment: ALIGNMENTS.GOOD,
+                    weight: 3
                 },
                 {
                     text: '(lie) tell her you don\'t have any food',
-                    alignment: ALIGNMENTS.EVIL
+                    alignment: ALIGNMENTS.EVIL,
+                    weight: 2
                 }
             ]
         },
@@ -88,11 +92,13 @@ export const BOOK = {
             options: [
                 {
                     text: 'light',
-                    alignment: ALIGNMENTS.GOOD
+                    alignment: ALIGNMENTS.GOOD,
+                    weight: 5
                 },
                 {
                     text: 'dark',
-                    alignment: ALIGNMENTS.EVIL
+                    alignment: ALIGNMENTS.EVIL,
+                    weight: 5
                 }
             ]
         }
