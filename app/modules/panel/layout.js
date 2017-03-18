@@ -4,7 +4,11 @@ import classNames from 'classnames';
 import { panel } from './styles.scss';
 
 const Layout = (props) => {
-    const { children, toggle, position } = props;
+    const {
+        children,
+        toggle,
+        position
+    } = props;
 
     const style = {
         opacity: toggle,
