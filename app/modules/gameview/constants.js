@@ -1,4 +1,4 @@
-export const NAME = 'story';
+export const NAME = 'gameview';
 
 export const ALIGNMENTS = {
     LAWFUL: 'lawful',
@@ -45,7 +45,9 @@ export const BOOK = {
                 'hand in hand you run through a grassy field.'
             ],
             decisions: ['003'],
-            endings: {}
+            endings: {
+                default: 'you come to a clearing, and stop for a rest.'
+            }
         }
     ],
     outcome: {
