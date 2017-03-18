@@ -36,3 +36,6 @@ npm-debug.log
 
 #ngrok
 ngrok
+
+#mac crap
+.DS_Store
