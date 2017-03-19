@@ -39,6 +39,7 @@ class Panel extends Component {
     render() {
         const { children, ...props } = this.props;
         const { toggle, displayedChild } = this.state;
+
         return (
             <Layout {...props} toggle={toggle}>
                 { displayedChild }
@@ -49,8 +50,7 @@ class Panel extends Component {
 
 Panel.propTypes = {
     children: PropTypes.node.isRequired,
-    timer: PropTypes.string.isRequired,
-    isTemporary: PropTypes.bool
+    timer: PropTypes.string.isRequired
 };
 
 export default Panel;
