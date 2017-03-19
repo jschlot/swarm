@@ -1,4 +1,5 @@
 @import '../../../core/components/colors';
+@import '../../../core/components/fonts';
 
 .chapter {
 	padding: 20px;
@@ -17,20 +18,25 @@
 	}
 
 	&__question {
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 	}
 
 	&__pick, &__next {
-		cursor: pointer;
     margin: .2em 0;
-    padding: .3em 0;
-		
+		padding: .2em 0;
+		border: none;
+		background: none;
+		text-align: left;
+		color: $dustygray;
+		font-family: $viewport;
+		cursor: pointer;
+
 		&:before {
 			content: '> ';
 		}
 
 		&:hover {
-	    background-color: rgba(64,64,64,0.2);
+			color: $white;
 		}
 	}
 }

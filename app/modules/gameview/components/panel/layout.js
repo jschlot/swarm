@@ -23,7 +23,7 @@ const Layout = (props) => {
 };
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     toggle: PropTypes.number,
     position: PropTypes.string
 };
