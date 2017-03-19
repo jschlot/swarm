@@ -20,29 +20,17 @@
 		margin-bottom: 1em;
 	}
 
-	&__pick {
+	&__pick, &__next {
 		cursor: pointer;
-		margin: .6em 0;
+    margin: .2em 0;
+    padding: .3em 0;
 		
 		&:before {
 			content: '> ';
 		}
 
 		&:hover {
-			color: $white;
-		}
-	}
-
-	&__next {
-		margin-top: 1em;
-		cursor: pointer;
-
-		&:before {
-			content: '> ';
-		}
-
-		&:hover {
-			color: $white;
+	    background-color: rgba(255,255,255,0.2);
 		}
 	}
 }
