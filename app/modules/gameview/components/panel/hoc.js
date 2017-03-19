@@ -7,7 +7,8 @@ class Panel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            toggle: 0
+            toggle: 0,
+            displayedChild: null
         };
     }
 
@@ -32,14 +33,15 @@ class Panel extends Component {
         this.setState({
             toggle: 1
         });
+        this.setState({displayedChild: this.props.children});
     }
 
     render() {
         const { children, ...props } = this.props;
-        const { toggle } = this.state;
+        const { toggle, displayedChild } = this.state;
         return (
             <Layout {...props} toggle={toggle}>
-                { children }
+                { displayedChild }
             </Layout>
         );
     }

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
 import { panel } from './styles.scss';
 
@@ -16,13 +15,8 @@ const Layout = (props) => {
         marginLeft: (position === 'right') ? 0 : toggle * 100
     };
 
-    const classes = classNames({
-        'panel': true,
-        'show': toggle
-    });
-
     return (
-        <div className={classes} style={style}>
+        <div className="panel" style={style}>
             { children }
         </div>
     );

@@ -1,8 +1,5 @@
 .panel {
 	position: relative;
 	left: -100px;
-
-	&.show {
-		transition: all ease-in 200ms 200ms;
-	}
+	transition: all ease-in 400ms 200ms;
 }

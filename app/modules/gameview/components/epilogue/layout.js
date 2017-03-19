@@ -13,15 +13,14 @@ const Epilogue = (props) => {
 		allResultsPerChapter
     } = props;
 
-    console.log(alignmentScore);
-    console.log(allResultsPerChapter);
-
     return (
 		<div className="epilogue">
-			<h2 className="epilogue__heading">
-				epilogue
-			</h2>
-			<Panel timer="800">
+			<Panel timer="600">
+				<h2 className="epilogue__heading">
+					epilogue
+				</h2>
+			</Panel>
+			<Panel timer="1200">
 				<div className="epilogue__story-ending">
 					{ storyEnding }
 				</div>

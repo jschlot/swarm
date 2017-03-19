@@ -18,10 +18,12 @@ const Chapter = (props) => {
 
     return (
 			<div className="chapter">
-					<h2 className="chapter__heading">
-							{ heading }
-					</h2>
 					<Panel timer="600">
+						<h2 className="chapter__heading">
+								{ heading }
+						</h2>
+					</Panel>
+					<Panel timer="1200">
 							{ body ? (
 									<div className="chapter__body">
 											{body}
