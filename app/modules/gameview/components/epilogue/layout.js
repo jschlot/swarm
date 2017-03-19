@@ -25,7 +25,7 @@ const Epilogue = (props) => {
 					{ storyEnding }
 				</div>
 			</Panel>
-			<Panel timer="5000">
+			<Panel timer="4800">
 				<div className="epilogue__next" onClick={onReset}>
 					play again
 				</div>
