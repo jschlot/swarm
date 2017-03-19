@@ -6,13 +6,12 @@ const Layout = (props) => {
     const {
         children,
         toggle,
-        position
+        position = 'left'
     } = props;
 
     const style = {
         opacity: toggle,
-        marginRight: (position !== 'right') ? 0 : toggle * 100,
-        marginLeft: (position === 'right') ? 0 : toggle * 100
+        [position]: (toggle * 100) - 100
     };
 
     return (
