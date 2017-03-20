@@ -24,6 +24,7 @@ export const BOOK = {
         },
         {
             title: 'with a whisper',
+            body: [],
             decisions: ['001', '002'],
             endings: {
                 [ALIGNMENTS.GOOD]: 'thanks mister! i must have fallen asleep while waiting for my parents.',
