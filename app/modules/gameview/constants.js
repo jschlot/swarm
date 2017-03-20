@@ -10,7 +10,7 @@ export const ALIGNMENTS = {
 
 export const BOOK = {
     theme: {
-        backgroundVideo: 'https://pixabay.com/en/videos/download/video-447_medium.mp4'
+        backgroundVideo: 'http://pixabay.com/en/videos/download/video-447_medium.mp4'
     },
     chapter: [
         {
@@ -89,17 +89,17 @@ export const BOOK = {
         },
         '003': {
             id: '003',
-            text: 'which do you prefer?',
+            text: 'muffled sounds behind you sound menacing,,,?',
             options: [
                 {
-                    text: 'light',
+                    text: 'carry the girl, and run',
                     alignment: ALIGNMENTS.GOOD,
                     weight: 5
                 },
                 {
-                    text: 'dark',
+                    text: 'run faster',
                     alignment: ALIGNMENTS.EVIL,
-                    weight: 5
+                    weight: 2
                 }
             ]
         }
