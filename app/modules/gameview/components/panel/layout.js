@@ -16,7 +16,9 @@ const Layout = (props) => {
 
     return (
         <div className="panel" style={style}>
-            { children }
+            <div className="panel__children">
+                { children }
+            </div>
         </div>
     );
 };
@@ -24,7 +26,7 @@ const Layout = (props) => {
 Layout.propTypes = {
     children: PropTypes.node,
     toggle: PropTypes.number,
-    position: PropTypes.string
+    position: PropTypes.oneOf(['left', 'right', 'top', 'bottom'])
 };
 
 export default Layout;

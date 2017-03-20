@@ -17,11 +17,10 @@ class Panel extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        this.interval = setTimeout(this.handleTick.bind(this), this.props.timer);
         this.setState({
             toggle: 0
         });
-
-        this.interval = setTimeout(this.handleTick.bind(this), this.props.timer);
     }
 
     componentWillUnmount() {
@@ -31,9 +30,9 @@ class Panel extends Component {
     handleTick() {
         clearTimeout(this.interval);
         this.setState({
-            toggle: 1
+            toggle: 1,
+            displayedChild: this.props.children
         });
-        this.setState({displayedChild: this.props.children});
     }
 
     render() {

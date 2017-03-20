@@ -21,7 +21,7 @@ const Toaster = (props) => {
 
     return (
         <div className="toaster">
-            <Panel timer="600" position="right">
+            <Panel timer="600" position="top">
                 <div className="toaster__message">{ message }</div>
                 { result ? <div className={resultClass}>{result} points earned</div> : null }
             </Panel>
