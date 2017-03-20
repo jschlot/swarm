@@ -16,9 +16,7 @@ const Layout = (props) => {
 
     return (
         <div className="panel" style={style}>
-            <div className="panel__children">
-                { children }
-            </div>
+            { children }
         </div>
     );
 };
