@@ -14,6 +14,7 @@ export const BOOK = {
     },
     chapter: [
         {
+            type: 'script',
             title: 'where am i?',
             body: [
                 'darkness, a vague sound, almost like a hum, but deep inside you. ',
@@ -21,6 +22,7 @@ export const BOOK = {
             ]
         },
         {
+            type: 'choices',
             title: 'with a whisper',
             decisions: ['001', '002'],
             endings: {
@@ -29,6 +31,7 @@ export const BOOK = {
             }
         },
         {
+            type: 'script',
             title: 'an unexpected friend',
             body: [
                 'the little girl wakes up, and walks up to you. ',
@@ -36,6 +39,7 @@ export const BOOK = {
             ]
         },
         {
+            type: 'choices',
             title: 'run for your life',
             decisions: ['003'],
             endings: {
