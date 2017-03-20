@@ -18,13 +18,10 @@ export const BOOK = {
             body: [
                 'darkness, a vague sound, almost like a hum, but deep inside you. ',
                 'your head vibrates and throbs painfully'
-            ],
-            decisions: [],
-            endings: {}
+            ]
         },
         {
             title: 'with a whisper',
-            body: [],
             decisions: ['001', '002'],
             endings: {
                 [ALIGNMENTS.GOOD]: 'thanks mister! i must have fallen asleep while waiting for my parents.',
@@ -36,15 +33,10 @@ export const BOOK = {
             body: [
                 'the little girl wakes up, and walks up to you. ',
                 'she tugs at your sleeve as if the wants to thank you for being there.'
-            ],
-            decisions: [],
-            endings: {}
+            ]
         },
         {
             title: 'run for your life',
-            body: [
-                'hand in hand you run through a grassy field.'
-            ],
             decisions: ['003'],
             endings: {
                 default: 'you come to a clearing, and stop for a rest.'

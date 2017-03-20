@@ -10,14 +10,14 @@ const book = state => BOOK;
 
 export const getBackgroundVideo = state => book(state).theme.backgroundVideo;
 
-const getChapter = (state, chapterIndex) => book(state).chapter[chapterIndex];
+const getChapter = (state, chapterIndex) => book(state).chapter[chapterIndex] || {};
 export const getChapterHeading = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).title;
 export const getChapterBody = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).body;
 
 export const getChapterEnding = (state, chapterIndex, alignment) => {
     const chapter = getChapter(state, chapterIndex);
     if (!chapter) return '';
-    const defaultValue = chapter.endings.default || '';
+    const defaultValue = chapter.endings && chapter.endings.default || '';
     return (alignment && chapter.endings[alignment]) ? chapter.endings[alignment] : defaultValue;
 };
 
@@ -29,7 +29,7 @@ export const getStoryEnding = (state, alignment) => {
 
 const getDecision = (state, index) => book(state).decision[index];
 export const getDecisionByChapter = (state, chapterIndex, index) => {
-    return getChapter(state, chapterIndex) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
+    return (getChapter(state, chapterIndex) && getChapter(state, chapterIndex).decisions) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
 };
 
 // Navigation
