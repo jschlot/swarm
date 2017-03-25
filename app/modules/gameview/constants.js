@@ -22,7 +22,14 @@ export const BOOK = {
             ]
         },
         {
-            type: 'choices',
+            type: 'script',
+            title: 'where am i?',
+            body: [
+                'your eyes blur into focus, and you can see that you are deep inside of a tunnel, with no end in sight'
+            ]
+        },
+        {
+            type: 'choice',
             title: 'with a whisper',
             decisions: ['001', '002'],
             endings: {
@@ -39,7 +46,7 @@ export const BOOK = {
             ]
         },
         {
-            type: 'choices',
+            type: 'choice',
             title: 'run for your life',
             decisions: ['003'],
             endings: {
