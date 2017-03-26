@@ -2,12 +2,9 @@
 
 ## Synopsis
 
-The idea started as a quiz, like many on Buzzfeed. I wanted to make a system that could take a set of weighted choices, 
-and then reduce these choices down to a single result. A user might come in, choose some answers to a set of questions,
-and I should be able to tell them which character from Star Wars they are like.
+Swarm works by presenting a player with a story that contains an episode list. Each episode has many "choose your own" style chapter objects. Each choice sets alignment scores and sends you to another location in the chapter.
 
-![Swarm UI](./swarm.png "Swarm UI")
-
+As the player progresses through the story, they are cast into their overall player alignment. Additional gameplay is then dictated based on alterations based on this player alignment.
 
 ## Installation
 
