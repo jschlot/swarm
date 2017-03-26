@@ -1,8 +1,19 @@
-// todos/index.js
-import * as actions from './actions';
-import * as actionTypes from './actionTypes';
-import * as constants from './constants';
-import reducer from './reducer';
-import * as selectors from './selectors';
+import { connect } from 'react-redux';
 
-export default { actions, constants, reducer, selectors };
+import {
+    getBackgroundVideo,
+    getStoryMode
+} from './selectors';
+
+import Gameview from './layout';
+
+const mapStateToProps = (state) => {
+    return {
+        backgroundVideo: getBackgroundVideo(state),
+        storyMode: getStoryMode(state)
+    };
+};
+
+export default connect(
+    mapStateToProps
+)(Gameview);

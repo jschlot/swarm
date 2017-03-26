@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { chapter } from './styles.scss';
 
-import Panel from '../panel/hoc';
+import Panel from '../panel';
 
 const Chapter = (props) => {
     const {

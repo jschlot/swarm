@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { gameview } from './styles.scss';
 
-import Toaster from './components/toaster/container';
-import Epilogue from './components/epilogue/container';
-import Chapter from './components/chapter/container';
+import Toaster from './components/toaster';
+import Epilogue from './components/epilogue';
+import Chapter from './components/chapter';
 
-import Panel from './components/panel/hoc';
+import Panel from './components/panel';
 
 const Gameview = (props) => {
     const {

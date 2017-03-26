@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { toaster } from './styles.scss';
 
-import Panel from '../panel/hoc';
+import Panel from '../panel';
 
 const Toaster = (props) => {
     const {

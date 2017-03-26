@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { epilogue } from './styles.scss';
 
-import Panel from '../panel/hoc';
+import Panel from '../panel';
 
 const Epilogue = (props) => {
     const {
