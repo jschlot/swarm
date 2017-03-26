@@ -17,8 +17,8 @@ export const getEpisodes = state => book(state).episodes;
 
 // Navigation
 const gameProgress = state => root(state).progress;
-export const getEpisodeProgress = state => gameProgress(state).episode;
-export const getChapterProgress = state => gameProgress(state).chapter;
+export const getEpisodeProgress = state => gameProgress(state).episode || 0;
+export const getChapterProgress = state => gameProgress(state).chapter || '';
 export const getStoryMode = state => {
     if (getChapterProgress(state)) {
         return 'chapter';

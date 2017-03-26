@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
     getChapter,
     getChapterProgress,
+    getEpisodeProgress,
     getOutcome
 } from '../../selectors';
 
@@ -17,13 +18,14 @@ const mapStateToProps = (state) => {
     const chapterProgress = getChapterProgress(state);
     return {
         chapterObj: getChapter(state, chapterProgress),
-        outCome: getOutcome(state)
+        outCome: getOutcome(state),
+        episodeIdx: getEpisodeProgress(state)
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChoice: (question, choice) => dispatch(makeChoice(question, choice)),
+        onChoice: (question, episodeIdx, choice) => dispatch(makeChoice(question, episodeIdx, choice)),
         onReset: () => dispatch(reset())
     };
 };

@@ -1,5 +1,4 @@
 @import '../../../core/components/colors';
-@import '../../../core/components/fonts';
 @import '../../../core/components/uikit';
 
 .chapter {
@@ -29,6 +28,10 @@
 		}
 
 		&:hover {
+			color: $silver;
+		}
+
+		&:active {
 			color: $white;
 		}
 	}

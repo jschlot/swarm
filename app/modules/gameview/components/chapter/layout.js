@@ -9,6 +9,7 @@ const Chapter = (props) => {
     const {
         chapterObj,
         outCome,
+        episodeIdx,
         onChoice,
         onReset
     } = props;
@@ -26,7 +27,7 @@ const Chapter = (props) => {
                 </div>
                 <div className="chapter__question">
                     {chapterObj.options && chapterObj.options.map((obj, index) => (
-                        <div key={index} className="chapter__pick" onClick={() => onChoice(chapterObj.id, obj)}>
+                        <div key={index} className="chapter__pick" onClick={() => onChoice(chapterObj.id, episodeIdx, obj)}>
                             {obj.text}
                         </div>
                     ))}
@@ -44,6 +45,7 @@ const Chapter = (props) => {
 Chapter.propTypes = {
     chapterObj: PropTypes.object.isRequired,
     outCome: PropTypes.string,
+    episodeIdx: PropTypes.number,
     onChoice: PropTypes.func.isRequired,
     onReset: PropTypes.func.isRequired
 };

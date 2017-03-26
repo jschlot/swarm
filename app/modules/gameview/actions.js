@@ -5,11 +5,12 @@ import {
     GOTO_EPISODE
 } from './actionTypes';
 
-export const makeChoice = (question, choice) => (
+export const makeChoice = (question, episodeIdx, choice) => (
     {
         type: MAKE_CHOICE,
         question,
-        choice
+        choice,
+        episodeIdx
     }
 );
 

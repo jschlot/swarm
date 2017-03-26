@@ -12,12 +12,11 @@ const book = (state = BOOK, action) => state;
 
 const choices = (state = [], action) => {
     switch (action.type) {
-        case RESET:
-            return [];
         case MAKE_CHOICE:
             return [
                 ...state,
                 Object.assign({}, {
+                    episodeIdx: action.episodeIdx,
                     question: action.question,
                     answer: action.choice
                 })
