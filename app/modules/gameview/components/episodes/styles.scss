@@ -22,7 +22,7 @@
 	&__pick {
 		@extend .pickbox;
 		
-    &--completed {
+    &--deactivated {
 			@extend .pickbox;
 			cursor: default;
 			opacity: 0.5;
