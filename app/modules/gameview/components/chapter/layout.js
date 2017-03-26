@@ -9,7 +9,8 @@ const Chapter = (props) => {
     const {
         chapterObj,
         outCome,
-        onChoice
+        onChoice,
+        onReset
     } = props;
 
     return (
@@ -24,11 +25,16 @@ const Chapter = (props) => {
                     {chapterObj.body[outCome] ? chapterObj.body[outCome] : chapterObj.body.default}
                 </div>
                 <div className="chapter__question">
-                    {chapterObj.options.map((obj, index) => (
+                    {chapterObj.options && chapterObj.options.map((obj, index) => (
                         <div key={index} className="chapter__pick" onClick={() => onChoice(chapterObj.id, obj)}>
                             {obj.text}
                         </div>
                     ))}
+                    {!chapterObj.options ? (
+                        <div className="chapter__pick" onClick={onReset}>
+                            continue
+                        </div>
+                    ) : null }
                 </div>
             </Panel>
         </div>
@@ -38,7 +44,8 @@ const Chapter = (props) => {
 Chapter.propTypes = {
     chapterObj: PropTypes.object.isRequired,
     outCome: PropTypes.string,
-    onChoice: PropTypes.func.isRequired
+    onChoice: PropTypes.func.isRequired,
+    onReset: PropTypes.func.isRequired
 };
 
 export default Chapter;

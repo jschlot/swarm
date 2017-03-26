@@ -41,19 +41,19 @@ export const getOutcome = state => {
 
     const obj = root(state).score;
 
-    let n = undefined;
+    let highestCount = undefined;
 
-    Object.keys(obj).forEach(function(o) {
-        if (!n) {
-            n = obj[o];
-        } else if (n < obj[o]) {
-            n = obj[o];
+    Object.keys(obj).forEach(o => {
+        if (!highestCount) {
+            highestCount = obj[o];
+        } else if (highestCount < obj[o]) {
+            highestCount = obj[o];
         }
     });
 
-    const j = Object.keys(obj).filter(function(o) {
-        return obj[o] === n;
+    const matches = Object.keys(obj).filter(o => {
+        return obj[o] === highestCount;
     });
 
-    return j[0];
+    return matches[0];
 };

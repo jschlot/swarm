@@ -36,8 +36,7 @@ export const WHOAMI = {
                 [ALIGNMENTS.EVIL]: [
                     'sadly, the little girl dies suddenly. you never even got to know her name.'
                 ]
-            },
-            options: []
+            }
         },
         'choice one': {
             id: 'choice one',
@@ -90,7 +89,7 @@ export const WHOAMI = {
                     idx: 1,
                     text: '(lie) tell her you don\'t have any food',
                     alignment: ALIGNMENTS.EVIL,
-                    weight: 3,
+                    weight: 1,
                     next: 'the end'
                 }
             ]

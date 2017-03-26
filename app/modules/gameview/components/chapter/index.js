@@ -7,7 +7,8 @@ import {
 } from '../../selectors';
 
 import {
-    makeChoice
+    makeChoice,
+    reset
 } from '../../actions';
 
 import Chapter from './layout';
@@ -22,7 +23,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChoice: (question, choice) => dispatch(makeChoice(question, choice))
+        onChoice: (question, choice) => dispatch(makeChoice(question, choice)),
+        onReset: () => dispatch(reset())
     };
 };
 

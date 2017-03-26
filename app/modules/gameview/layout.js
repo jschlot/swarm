@@ -5,7 +5,6 @@ import { gameview } from './styles.scss';
 import Toaster from './components/toaster';
 import Episodes from './components/episodes';
 import Chapter from './components/chapter';
-import Epilogue from './components/epilogue';
 
 import Panel from './components/panel';
 
@@ -26,7 +25,6 @@ const Gameview = (props) => {
             <div className="gameview__pages">
                 { storyMode === 'episodes' ? <Episodes /> : null }
                 { storyMode === 'chapter' ? <Chapter /> : null }
-                { storyMode === 'epilogue' ? <Epilogue /> : null }
             </div>
         </div>
     );

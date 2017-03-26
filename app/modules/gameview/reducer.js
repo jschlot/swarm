@@ -29,8 +29,10 @@ const choices = (state = [], action) => {
 
 const toaster = (state = '', action) => {
     switch (action.type) {
+        case RESET:
+            return '';
         case MAKE_CHOICE:
-            return `${action.choice.text} chosen`;
+            return `you ${action.choice.text}`;
         default:
             return state;
     }
