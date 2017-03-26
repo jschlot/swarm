@@ -62,7 +62,7 @@ Episodes.propTypes = {
     episodeList: PropTypes.array,
     currentEpisode: PropTypes.number,
     storyTitle: PropTypes.string,
-    storyDescription: PropTypes.string,
+    storyDescription: PropTypes.array,
     onChooseEpisode: PropTypes.func
 };
 
