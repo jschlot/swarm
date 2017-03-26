@@ -1,15 +1,12 @@
 @import '../../../core/components/colors';
 @import '../../../core/components/fonts';
+@import '../../../core/components/uikit';
 
 .epilogue {
-	padding: 20px;
+	@extend .section;
 
 	&__heading {
-		font-weight: 100;
-		font-size: 50px;
-		margin-bottom: 10px;
-		color: $white;
-		line-height: 1em;
+	  @extend .heading
 	}
 
 	&__next {

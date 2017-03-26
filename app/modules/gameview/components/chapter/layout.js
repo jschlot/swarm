@@ -7,56 +7,38 @@ import Panel from '../panel';
 
 const Chapter = (props) => {
     const {
-			currentChapterIdx,
-			heading,
-			body,
-			decision,
-			chapterEnding,
-			onChoice,
-			onNext
+        chapterObj,
+        outCome,
+        onChoice
     } = props;
 
     return (
-		    <div className="chapter">
-				    <Panel timer="600">
-					      <h2 className="chapter__heading">
-						        {heading}
-					      </h2>
-				    </Panel>
-				    <Panel timer="1200">
-					      {body ? (<div className="chapter__body">{body}</div>) : null}
-								{decision.options ? (
-								    <div className="chapter__choices">
-										    <div className="chapter__question">{decision.text}</div>
-							          {decision.options.map((obj, index) => (
-								            <div key={index} className="chapter__pick" onClick={() => onChoice(decision, obj, currentChapterIdx)}>
-									              {obj.text}
-								            </div>
-							          ))}
-										</div>
-								) : (
-							      <div>
-										    <div className="chapter___result">
-												    {chapterEnding}
-											  </div>
-											  <div className="chapter__next" onClick={onNext}>
-												    go on...
-												</div>
-										</div>
-						    )}
+        <div className="chapter">
+            <Panel timer="600">
+                <h2 className="chapter__heading">
+                    {chapterObj.title}
+                </h2>
             </Panel>
-			</div>
-		);
+            <Panel timer="1200">
+                <div className="chapter__body">
+                    {chapterObj.body[outCome] ? chapterObj.body[outCome] : chapterObj.body.default}
+                </div>
+                <div className="chapter__question">
+                    {chapterObj.options.map((obj, index) => (
+                        <div key={index} className="chapter__pick" onClick={() => onChoice(chapterObj.id, obj)}>
+                            {obj.text}
+                        </div>
+                    ))}
+                </div>
+            </Panel>
+        </div>
+    );
 };
 
 Chapter.propTypes = {
-    currentChapterIdx: PropTypes.number,
-    heading: PropTypes.string,
-    body: PropTypes.array,
-    decision: PropTypes.object,
-    chapterEnding: PropTypes.string,
-    onChoice: PropTypes.func,
-    onNext: PropTypes.func
+    chapterObj: PropTypes.object.isRequired,
+    outCome: PropTypes.string,
+    onChoice: PropTypes.func.isRequired
 };
 
 export default Chapter;

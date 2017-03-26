@@ -1,4 +1,5 @@
-import { NAME, BOOK } from './constants';
+import {samplebook} from '../stories/samplebook';
+import { NAME } from './constants';
 
 const root = state => state[NAME];
 
@@ -6,108 +7,53 @@ const root = state => state[NAME];
 export const getMessage = state => root(state).toaster;
 
 // Story, Chapters, Decisions
-const book = state => BOOK;
+const book = state => samplebook;
 
-export const getBackgroundVideo = state => book(state).theme.backgroundVideo;
+export const getBackgroundVideo = state => book(state).meta.backgroundVideo;
+export const getStoryTitle = state => book(state).meta.title;
+export const getStoryDescription = state => book(state).meta.description;
 
-const getChapter = (state, chapterIndex) => book(state).chapter[chapterIndex] || {};
-export const getChapterHeading = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).title;
-export const getChapterBody = (state, chapterIndex) => getChapter(state, chapterIndex) && getChapter(state, chapterIndex).body;
-
-export const getChapterEnding = (state, chapterIndex, alignment) => {
-    const chapter = getChapter(state, chapterIndex);
-    if (!chapter) return '';
-    const defaultValue = chapter.endings && chapter.endings.default || '';
-    return (alignment && chapter.endings[alignment]) ? chapter.endings[alignment] : defaultValue;
-};
-
-export const getStoryEnding = (state, alignment) => {
-    const story = book(state);
-    const defaultValue = story.outcome.default || '';
-    return (alignment && story.outcome[alignment]) ? story.outcome[alignment] : defaultValue;
-};
-
-const getDecision = (state, index) => book(state).decision[index];
-export const getDecisionByChapter = (state, chapterIndex, index) => {
-    return (getChapter(state, chapterIndex) && getChapter(state, chapterIndex).decisions) && getDecision(state, getChapter(state, chapterIndex).decisions[index]) || {};
-};
+export const getEpisodes = state => book(state).episodes;
 
 // Navigation
 const gameProgress = state => root(state).progress;
+export const getEpisodeProgress = state => gameProgress(state).episode;
 export const getChapterProgress = state => gameProgress(state).chapter;
-export const getDecisionProgress = state => gameProgress(state).decision;
-export const getStoryMode = state => (getChapterProgress(state) === book(state).chapter.length) ? 'epilogue' : 'chapter';
-
-// Choices & Reports
-const choices = state => root(state).choices;
-
-export const getResult = (state, chapterIdx) => {
-    if (!choices(state)) return '';
-
-    const countedAlignments = choices(state).reduce((alignments, obj) => {
-        if (obj.chapter !== chapterIdx) return alignments;
-        const key = obj.answer.alignment;
-        if (key in alignments) {
-            alignments[key] = alignments[key] + obj.answer.weight;
-        } else {
-            alignments[key] = 1;
-        }
-        return alignments;
-    }, {});
-
-    if (Object.keys(countedAlignments).length) {
-        return Object.keys(countedAlignments).reduce((a, b) => {
-            return countedAlignments[a] > countedAlignments[b] ? a : b;
-        });
+export const getStoryMode = state => {
+    if (getChapterProgress(state)) {
+        return 'chapter';
     }
-
-    return '';
+    return 'episodes';
 };
 
-export const getAllResultsPerChapter = (state) => {
-    if (!choices(state)) return {};
+export const currentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
 
-    const report = {};
-    choices(state).forEach(obj => {
-        report[obj.chapter] = {
-            title: BOOK.chapter[obj.chapter].title,
-            result: getResult(state, obj.chapter)
-        };
+export const getChapter = (state, currentChapterId) => {
+    return currentEpisode(state).chapters[currentChapterId] || {};
+};
+
+export const getLastChoice = state => gameProgress(state).last;
+
+export const getOutcome = state => {
+    if (!root(state).score) {
+        return '';
+    }
+
+    const obj = root(state).score;
+
+    let n = undefined;
+
+    Object.keys(obj).forEach(function(o) {
+        if (!n) {
+            n = obj[o];
+        } else if (n < obj[o]) {
+            n = obj[o];
+        }
     });
 
-    return report;
-};
+    const j = Object.keys(obj).filter(function(o) {
+        return obj[o] === n;
+    });
 
-export const getAlignmentScore = (state) => {
-    if (!choices(state)) return '';
-
-    return choices(state).reduce((alignments, obj) => {
-        const key = obj.answer.alignment;
-        if (key in alignments) {
-            alignments[key] = {
-                count: alignments[key].count + 1,
-                sum: alignments[key].sum + obj.answer.weight
-            };
-        } else {
-            alignments[key] = {
-                count: 1,
-                sum: obj.answer.weight
-            };
-        }
-        return alignments;
-    }, {});
-};
-
-export const getFinalOutcome = (state) => {
-    if (!choices(state)) return '';
-
-    const countedAlignments = getAlignmentScore(state);
-
-    if (Object.keys(countedAlignments).length) {
-        return Object.keys(countedAlignments).reduce((a, b) => {
-            return countedAlignments[a] > countedAlignments[b] ? a : b;
-        });
-    }
-
-    return '';
+    return j[0];
 };

@@ -1,20 +1,16 @@
 @import '../../../core/components/colors';
 @import '../../../core/components/fonts';
+@import '../../../core/components/uikit';
 
 .chapter {
-	padding: 20px;
+	@extend .section;
 
 	&__heading {
-		font-weight: 100;
-		font-size: 50px;
-		margin-bottom: 10px;
-		color: $white;
-		line-height: 1em;
+		@extend .heading;
 	}
 
 	&__body {
-		margin-bottom: 1em;
-		font-style: italic;
+		@extend .body;
 	}
 
 	&__question {

@@ -7,31 +7,20 @@ import Panel from '../panel';
 
 const Toaster = (props) => {
     const {
-        message,
-        result
+        message
     } = props;
-
-    // result
-    const resultClass = classNames({
-        'toaster__xp--good': result === 'good',
-        'toaster__xp--evil': result === 'evil',
-        'toaster__xp--lawful': result === 'lawful',
-        'toaster__xp--chaotic': result === 'chaotic'
-    });
 
     return (
         <div className="toaster">
             <Panel timer="600" position="top">
                 <div className="toaster__message">{ message }</div>
-                { result ? <div className={resultClass}>{result} points earned</div> : null }
             </Panel>
         </div>
 		);
 };
 
 Toaster.propTypes = {
-    message: PropTypes.string,
-    result: PropTypes.string,
+    message: PropTypes.string
 };
 
 export default Toaster;

@@ -1,41 +1,28 @@
 import { connect } from 'react-redux';
 
 import {
+    getChapter,
     getChapterProgress,
-    getDecisionProgress,
-    getResult,
-    getFinalOutcome,
-    getChapterHeading,
-    getChapterBody,
-    getDecisionByChapter,
-    getChapterEnding
+    getOutcome
 } from '../../selectors';
 
 import {
-    makeChoice,
-    nextChapter
+    makeChoice
 } from '../../actions';
 
 import Chapter from './layout';
 
 const mapStateToProps = (state) => {
-    const currentChapterIdx = getChapterProgress(state);
-    const currentDecisionId = getDecisionProgress(state);
-    const result = getResult(state, currentChapterIdx);
-
+    const chapterProgress = getChapterProgress(state);
     return {
-        currentChapterIdx,
-        heading: getChapterHeading(state, currentChapterIdx),
-        body: getChapterBody(state, currentChapterIdx),
-        decision: getDecisionByChapter(state, currentChapterIdx, currentDecisionId),
-        chapterEnding: getChapterEnding(state, currentChapterIdx, result)
+        chapterObj: getChapter(state, chapterProgress),
+        outCome: getOutcome(state)
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChoice: (question, choice, chapterIdx) => dispatch(makeChoice(question, choice, chapterIdx)),
-        onNext: () => dispatch(nextChapter())
+        onChoice: (question, choice) => dispatch(makeChoice(question, choice))
     };
 };
 

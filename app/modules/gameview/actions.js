@@ -1,21 +1,23 @@
 import {
 	MAKE_CHOICE,
     NEXT_CHAPTER,
-    RESET
+    RESET,
+    GOTO_EPISODE
 } from './actionTypes';
 
-export const makeChoice = (question, choice, chapterIdx) => (
+export const makeChoice = (question, choice) => (
     {
         type: MAKE_CHOICE,
         question,
-        choice,
-        chapterIdx
+        choice
     }
 );
 
-export const nextChapter = () => (
+export const gotoEpisode = (episode, index) => (
     {
-        type: NEXT_CHAPTER
+        type: GOTO_EPISODE,
+        episode,
+        index
     }
 );
 

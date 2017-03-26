@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 
 import {
     MAKE_CHOICE,
-    NEXT_CHAPTER,
-    RESET
+    RESET,
+    GOTO_EPISODE
 } from './actionTypes';
 
 import { BOOK } from './constants';
@@ -12,15 +12,13 @@ const book = (state = BOOK, action) => state;
 
 const choices = (state = [], action) => {
     switch (action.type) {
-        case 'RESET':
+        case RESET:
             return [];
-        case 'MAKE_CHOICE':
+        case MAKE_CHOICE:
             return [
                 ...state,
                 Object.assign({}, {
-                    chapter: action.chapterIdx,
-                    decision: action.question.id,
-                    question: action.question.text,
+                    question: action.question,
                     answer: action.choice
                 })
             ];
@@ -31,30 +29,41 @@ const choices = (state = [], action) => {
 
 const toaster = (state = '', action) => {
     switch (action.type) {
-        case 'MAKE_CHOICE':
+        case MAKE_CHOICE:
             return `${action.choice.text} chosen`;
-        case 'NEXT_CHAPTER':
-            return '';
         default:
             return state;
     }
 };
 
-const progress = (state = {chapter: 0, decision: 0}, action) => {
+const progress = (state = {episode: 0, chapter: null, last: null}, action) => {
     switch (action.type) {
-        case 'RESET':
-            return {chapter: 0, decision: 0};
-        case 'MAKE_CHOICE':
-            const decision = state.decision + 1;
+        case RESET:
+            return {episode: 0, chapter: null, last: null};
+        case GOTO_EPISODE:
             return {
                 ...state,
-                decision
+                episode: action.index,
+                chapter: action.episode.start
             };
-        case 'NEXT_CHAPTER':
-            const chapter = state.chapter + 1;
+        case MAKE_CHOICE:
             return {
-                decision: 0,
-                chapter
+                ...state,
+                chapter: action.choice.next,
+                last: action.choice.alignment
+            };
+        default:
+            return state;
+    }
+};
+
+const score = (state = {}, action) => {
+    switch (action.type) {
+        case MAKE_CHOICE:
+            const original =  state[action.choice.alignment] || 0;
+            return {
+                ...state,
+                [action.choice.alignment]: action.choice.weight + original
             };
         default:
             return state;
@@ -64,7 +73,8 @@ const progress = (state = {chapter: 0, decision: 0}, action) => {
 const reducer = combineReducers({
     choices,
     toaster,
-    progress
+    progress,
+    score
 });
 
 export default reducer;
