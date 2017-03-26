@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
 	getEpisodes,
 	getStoryTitle,
-	getStoryDescription
+	getStoryDescription,
+    getHistory
 } from '../../selectors';
 
 import {
@@ -13,11 +14,11 @@ import {
 import Episodes from './layout';
 
 const mapStateToProps = (state) => {
-
     return {
         episodeList: getEpisodes(state),
         storyTitle: getStoryTitle(state),
-        storyDescription: getStoryDescription(state)
+        storyDescription: getStoryDescription(state),
+        history: getHistory(state)
     };
 };
 

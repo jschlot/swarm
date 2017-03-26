@@ -34,6 +34,15 @@ export const getChapter = (state, currentChapterId) => {
 
 export const getLastChoice = state => gameProgress(state).last;
 
+const choices = state => root(state).choices;
+export const getHistory = state => {
+    const list = {};
+    choices(state).map(obj => {
+        list[obj.episodeIdx] = obj.episodeIdx;
+    });
+    return Object.keys(list);
+};
+
 export const getOutcome = state => {
     if (!root(state).score) {
         return '';
