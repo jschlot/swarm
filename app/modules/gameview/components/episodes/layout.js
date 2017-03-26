@@ -12,9 +12,6 @@ const Episodes = (props) => {
 		onChooseEpisode
     } = props;
 
-    console.log(history.indexOf('0'));
-    console.log(history);
-
     return (
         <div className="episodes">
             <Panel timer="600">
