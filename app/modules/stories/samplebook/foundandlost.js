@@ -2,7 +2,7 @@ import { ALIGNMENTS } from '../constants';
 
 export const FOUNDANDLIST = {
     id: 'foundandlost',
-    title: 'Who Am I?',
+    title: 'Found and then Lost Again',
     description: 'You begin the encounter',
     start: 'introduction',
     chapters: {

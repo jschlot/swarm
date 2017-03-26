@@ -46,7 +46,8 @@ episodeList.map((obj, index) => {
 
     return (
 		<div key={index} className={css} onClick={handleClick}>
-			<div className="episodes__title">Episode {index + 1}: {obj.title}</div>
+			<div className="episodes__number">Episode {index + 1}</div>
+            <div className="episodes__title">{obj.title}</div>
 			<div className="episodes__description">{description}</div>
 		</div>
 	);
