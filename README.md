@@ -2,9 +2,7 @@
 
 ## Synopsis
 
-Swarm works by presenting a player with a story that contains an episode list. Each episode has many "choose your own" style chapter objects. Each choice sets alignment scores and sends you to another location in the chapter.
-
-As the player progresses through the story, they are cast into their overall player alignment. Additional gameplay is then dictated based on alterations based on this player alignment.
+Swarm is a game based on personality quizzes, telltale games (especially The Walking Dead, Game of Thrones, and Batman games), the old choose your own adventures series of books, and the Dungeon & Dragons Role Playing system.
 
 ### For more information
 
