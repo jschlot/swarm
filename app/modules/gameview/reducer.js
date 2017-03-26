@@ -61,10 +61,14 @@ const progress = (state = {episode: 0, chapter: null, last: null}, action) => {
 const score = (state = {}, action) => {
     switch (action.type) {
         case MAKE_CHOICE:
-            const original =  state[action.choice.alignment] || 0;
+            const originalTally =  state[action.choice.alignment] && state[action.choice.alignment].tally || 0;
+            const originalCount =  state[action.choice.alignment] && state[action.choice.alignment].count || 0;
             return {
                 ...state,
-                [action.choice.alignment]: action.choice.weight + original
+                [action.choice.alignment]: {
+                    tally: action.choice.weight + originalTally,
+                    count: 1 + originalCount
+                }
             };
         default:
             return state;

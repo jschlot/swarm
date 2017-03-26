@@ -46,14 +46,14 @@ export const getOutcome = state => {
 
     Object.keys(scores).forEach(o => {
         if (!highestCount) {
-            highestCount = scores[o];
-        } else if (highestCount < scores[o]) {
-            highestCount = scores[o];
+            highestCount = scores[o].tally;
+        } else if (highestCount < scores[o].tally) {
+            highestCount = scores[o].tally;
         }
     });
 
     const matches = Object.keys(scores).filter(o => {
-        return scores[o] === highestCount;
+        return scores[o].tally === highestCount;
     });
 
     return matches[0];
