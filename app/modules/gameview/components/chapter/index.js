@@ -9,7 +9,7 @@ import {
 
 import {
     makeChoice,
-    reset
+    gotoBook
 } from '../../actions';
 
 import Chapter from './layout';
@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onChoice: (question, episodeIdx, choice) => dispatch(makeChoice(question, episodeIdx, choice)),
-        onReset: () => dispatch(reset())
+        onGoToBook: () => dispatch(gotoBook())
     };
 };
 

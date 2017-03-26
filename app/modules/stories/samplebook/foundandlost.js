@@ -1,8 +1,8 @@
 import { ALIGNMENTS } from '../constants';
 
-export const GOINGPLACES = {
-    id: 'goingplaces',
-    title: 'Going Places',
+export const FOUNDANDLIST = {
+    id: 'foundandlost',
+    title: 'Who Am I?',
     description: 'You begin the encounter',
     start: 'introduction',
     chapters: {

@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 
 import {
 	getEpisodes,
+    getEpisodeProgress,
 	getStoryTitle,
-	getStoryDescription,
-    getHistory
+	getStoryDescription
 } from '../../selectors';
 
 import {
@@ -15,10 +15,10 @@ import Episodes from './layout';
 
 const mapStateToProps = (state) => {
     return {
+        currentEpisode: getEpisodeProgress(state),
         episodeList: getEpisodes(state),
         storyTitle: getStoryTitle(state),
-        storyDescription: getStoryDescription(state),
-        history: getHistory(state)
+        storyDescription: getStoryDescription(state)
     };
 };
 

@@ -1,5 +1,6 @@
 import { WHOAMI } from './whoami';
 import { GOINGPLACES } from './goingplaces';
+import { FOUNDANDLIST } from './foundandlost';
 
 export const samplebook = {
     meta: {
@@ -8,7 +9,7 @@ export const samplebook = {
         description: 'this is a basic book structure',
         backgroundVideo: 'http://pixabay.com/en/videos/download/video-447_medium.mp4'
     },
-    episodes: [WHOAMI, GOINGPLACES]
+    episodes: [WHOAMI, GOINGPLACES, FOUNDANDLIST]
 };
 
 /*

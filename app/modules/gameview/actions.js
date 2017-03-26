@@ -1,7 +1,7 @@
 import {
 	MAKE_CHOICE,
     NEXT_CHAPTER,
-    RESET,
+    GOTO_BOOK,
     GOTO_EPISODE
 } from './actionTypes';
 
@@ -22,8 +22,8 @@ export const gotoEpisode = (episode, index) => (
     }
 );
 
-export const reset = () => (
+export const gotoBook = () => (
     {
-        type: RESET
+        type: GOTO_BOOK
     }
 );

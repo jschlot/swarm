@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
 import { chapter } from './styles.scss';
 
@@ -11,7 +10,7 @@ const Chapter = (props) => {
         outCome,
         episodeIdx,
         onChoice,
-        onReset
+        onGoToBook
     } = props;
 
     return (
@@ -32,7 +31,7 @@ const Chapter = (props) => {
                         </div>
                     ))}
                     {!chapterObj.options ? (
-                        <div className="chapter__pick" onClick={onReset}>
+                        <div className="chapter__pick" onClick={onGoToBook}>
                             continue
                         </div>
                     ) : null }
@@ -47,7 +46,7 @@ Chapter.propTypes = {
     outCome: PropTypes.string,
     episodeIdx: PropTypes.number,
     onChoice: PropTypes.func.isRequired,
-    onReset: PropTypes.func.isRequired
+    onGoToBook: PropTypes.func.isRequired
 };
 
 export default Chapter;
