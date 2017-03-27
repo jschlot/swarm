@@ -18,7 +18,7 @@
 
 	&__pick {
 		@extend .pickbox;
-		width: 300px;
+		width: 25%;
 
 		&:hover {
 			background-color: $medium;

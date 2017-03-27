@@ -18,7 +18,8 @@
 
 	&__pick {
 		@extend .pickbox;
-		
+			width: 20%;
+
     &--deactivated {
 			@extend .pickbox;
 			cursor: default;
