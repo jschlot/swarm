@@ -18,27 +18,14 @@
 
 	&__pick {
 		@extend .pickbox;
-		width: 25%;
-
-		&:hover {
-			background-color: $medium;
-		}
-		&:active {
-			background-color: $heavy;			
-		}
 	}
 
 	&__title {
-		margin-top: 5px;
-		font-weight: 300;
-		height: 100%;
+		@extend .pickbox__title;
 	}
 
 	&__description {
-		margin-top: 5px;
-		color: $gallery;
-		font-style: italic;
-		font-size: 75%;
+		@extend .pickbox__description;
 	}
 
 }

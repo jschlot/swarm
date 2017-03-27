@@ -17,22 +17,6 @@
 	}
 
 	&__pick {
-    margin: .2em 0;
-		padding: .2em 0;
-		text-align: left;
-		color: $dustygray;
-		cursor: pointer;
-
-		&:before {
-			content: '> ';
-		}
-
-		&:hover {
-			color: $silver;
-		}
-
-		&:active {
-			color: $white;
-		}
+   @extend .link;
 	}
 }

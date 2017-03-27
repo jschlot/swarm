@@ -5,9 +5,19 @@ export const sample = {
         title: 'Sample Story',
         keywords: 'tutorial, sample',
         description: [
-            'in which we ask you a series of strange questions, and we find out a lot about who you are',
-            ' as a person.'
+            'you meet an unexpected friend, and your actions decide her fate'
         ]
     },
     episodes: [WHOAMI]
+};
+
+export const legacyOfTheLabyrinths = {
+    meta: {
+        title: 'The Legacy of the Seven Labyrinths',
+        keywords: 'epic, sword, sorcery, fantasy',
+        description: [
+            'you are a general in the Tam Army. On this night, you prepare for the morning\'s battle'
+        ]
+    },
+    episodes: []
 };
