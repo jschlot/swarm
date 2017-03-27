@@ -1,6 +1,6 @@
-import { WHOAMI } from './samplebook/whoami';
+import { WHOAMI } from './sample/whoami';
 
-export const samplebook = {
+export const sample = {
     meta: {
         title: 'Sample Story',
         keywords: 'tutorial, sample',
