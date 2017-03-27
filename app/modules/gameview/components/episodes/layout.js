@@ -29,24 +29,17 @@ const Episodes = (props) => {
 				<div className="episodes__list">{
                     episodeList.map((obj, index) => {
                         let handleClick = () => {};
-                        let css = classNames({
-                            'episodes__pick--deactivated': true
-                        });
-                        let description = obj.description;
-
                         if (currentEpisode === index) {
                             handleClick = () => onChooseEpisode(obj, index);
-                            css = classNames({
-                                'episodes__pick': true
-                            });
                         }
 
+                        let description = obj.description;
                         if (index < currentEpisode) {
-                            description = 'completed';
+                            description = 'episode completed';
                         }
 
                         return (
-                            <div key={index} className={css} onClick={handleClick}>
+                            <div key={index} className="episodes__pick" onClick={handleClick}>
                                 <div className="episodes__number">Episode {index + 1}</div>
                                 <div className="episodes__title">{obj.title}</div>
                                 <div className="episodes__description">{description}</div>

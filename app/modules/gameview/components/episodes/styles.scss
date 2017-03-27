@@ -18,12 +18,6 @@
 
 	&__pick {
 		@extend .pickbox;
-
-    &--deactivated {
-			@extend .pickbox;
-			cursor: default;
-			opacity: 0.5;
-		}
 	}
 
 	&__number {

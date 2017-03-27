@@ -27,8 +27,17 @@ const Stories = (props) => {
                     Object.keys(storyList).map((id, index) => {
                         return (
                             <div key={index} className="stories__pick" onClick={() => onChooseStory(id)}>
-                                <div className="stories__title">{storyList[id].meta.title}</div>
-                                <div className="stories__description">{storyList[id].meta.description}</div>
+                                <div className="stories__title">
+									{ storyList[id].meta.title }
+								</div>
+                                <div className="stories__description">
+									{ storyList[id].meta.description }
+								</div>
+								<div className="stories__description">
+									{ storyList[id].episodes.length }
+									&nbsp;
+									{ storyList[id].episodes.length === 1 ? 'episode' : 'episodes' }
+								</div>
                             </div>
 						);
                     })
