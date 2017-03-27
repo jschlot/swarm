@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { gameview } from './styles.scss';
 
 import Toaster from './components/toaster';
+import Stories from './components/stories';
 import Episodes from './components/episodes';
 import Chapter from './components/chapter';
 
@@ -23,6 +24,7 @@ const Gameview = (props) => {
             </div>
             <Toaster />
             <div className="gameview__pages">
+                { storyMode === 'stories' ? <Stories /> : null }
                 { storyMode === 'episodes' ? <Episodes /> : null }
                 { storyMode === 'chapter' ? <Chapter /> : null }
             </div>

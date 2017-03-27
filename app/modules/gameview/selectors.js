@@ -9,24 +9,30 @@ export const getMessage = state => root(state).toaster;
 
 // NAVIGATION
 const gameProgress = state => root(state).progress;
-export const getCurrentStory = state => gameProgress(state).story || '';
-export const getEpisodeProgress = state => gameProgress(state).episode || 0;
-export const getChapterProgress = state => gameProgress(state).chapter || '';
+export const getStoryProgress = state => gameProgress(state).story;
+export const getEpisodeProgress = state => gameProgress(state).episode;
+export const getChapterProgress = state => gameProgress(state).chapter;
 export const getStoryMode = state => {
-    if (getChapterProgress(state)) {
+    if (getChapterProgress(state) !== null) {
         return 'chapter';
     }
-    return 'episodes';
+
+    if (getEpisodeProgress(state) !== null) {
+        return 'episodes';
+    }
+
+    return 'stories';
 };
 
 // STORY STRUCTURE
-const book = state => stories[getCurrentStory(state)];
+export const getStoryList = state => stories;
+const book = state => getStoryList(state)[getStoryProgress(state)];
 export const getEpisodes = state => book(state).episodes;
 export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
 export const getChapter = (state, currentChapterId) => {
     return getCurrentEpisode(state).chapters[currentChapterId] || {};
 };
-export const getBackgroundVideo = state => book(state).meta.backgroundVideo;
+export const getBackgroundVideo = state => 'http://pixabay.com/en/videos/download/video-447_medium.mp4'; // book(state).meta.backgroundVideo;
 export const getStoryTitle = state => book(state).meta.title;
 export const getStoryDescription = state => book(state).meta.description;
 

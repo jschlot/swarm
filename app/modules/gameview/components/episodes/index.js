@@ -8,7 +8,8 @@ import {
 } from '../../selectors';
 
 import {
-    gotoEpisode
+    gotoEpisode,
+    gotoMain
 } from '../../actions';
 
 import Episodes from './layout';
@@ -24,7 +25,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChooseEpisode: (episode, index) => dispatch(gotoEpisode(episode, index))
+        onChooseEpisode: (episode, index) => dispatch(gotoEpisode(episode, index)),
+        ongotoMain: () => dispatch(gotoMain())
     };
 };
 

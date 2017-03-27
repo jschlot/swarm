@@ -11,7 +11,8 @@ const Episodes = (props) => {
         currentEpisode,
 		storyTitle,
 		storyDescription,
-		onChooseEpisode
+		onChooseEpisode,
+        ongotoMain
     } = props;
 
     return (
@@ -26,33 +27,37 @@ const Episodes = (props) => {
 					{ storyDescription }
 				</div>
 				<div className="episodes__list">{
-episodeList.map((obj, index) => {
-    let handleClick = () => {};
-    let css = classNames({
-        'episodes__pick--deactivated': true
-    });
-    let description = obj.description;
+                    episodeList.map((obj, index) => {
+                        let handleClick = () => {};
+                        let css = classNames({
+                            'episodes__pick--deactivated': true
+                        });
+                        let description = obj.description;
 
-    if (currentEpisode === index) {
-        handleClick = () => onChooseEpisode(obj, index);
-        css = classNames({
-            'episodes__pick': true
-        });
-    }
+                        if (currentEpisode === index) {
+                            handleClick = () => onChooseEpisode(obj, index);
+                            css = classNames({
+                                'episodes__pick': true
+                            });
+                        }
 
-    if (index < currentEpisode) {
-        description = 'completed';
-    }
+                        if (index < currentEpisode) {
+                            description = 'completed';
+                        }
 
-    return (
-		<div key={index} className={css} onClick={handleClick}>
-			<div className="episodes__number">Episode {index + 1}</div>
-            <div className="episodes__title">{obj.title}</div>
-			<div className="episodes__description">{description}</div>
-		</div>
-	);
-})
-                }</div>
+                        return (
+                            <div key={index} className={css} onClick={handleClick}>
+                                <div className="episodes__number">Episode {index + 1}</div>
+                                <div className="episodes__title">{obj.title}</div>
+                                <div className="episodes__description">{description}</div>
+                            </div>
+                        );
+                    })
+                }
+                </div>
+                <div className="episodes__back" onClick={ongotoMain}>
+                    back to swarm
+                </div>
 			</Panel>
         </div>
     );
@@ -63,7 +68,8 @@ Episodes.propTypes = {
     currentEpisode: PropTypes.number,
     storyTitle: PropTypes.string,
     storyDescription: PropTypes.array,
-    onChooseEpisode: PropTypes.func
+    onChooseEpisode: PropTypes.func.isRequired,
+    ongotoMain: PropTypes.func.isRequired
 };
 
 export default Episodes;

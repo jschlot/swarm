@@ -10,7 +10,7 @@ const Chapter = (props) => {
         outCome,
         episodeIdx,
         onChoice,
-        onGoToBook
+        onGoToEpisodeList
     } = props;
 
     return (
@@ -31,7 +31,7 @@ const Chapter = (props) => {
                         </div>
                     ))}
                     {!chapterObj.options ? (
-                        <div className="chapter__pick" onClick={onGoToBook}>
+                        <div className="chapter__pick" onClick={onGoToEpisodeList}>
                             continue
                         </div>
                     ) : null }
@@ -46,7 +46,7 @@ Chapter.propTypes = {
     outCome: PropTypes.string,
     episodeIdx: PropTypes.number,
     onChoice: PropTypes.func.isRequired,
-    onGoToBook: PropTypes.func.isRequired
+    onGoToEpisodeList: PropTypes.func.isRequired
 };
 
 export default Chapter;

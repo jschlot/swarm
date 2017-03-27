@@ -19,6 +19,13 @@
 	font-style: italic;
 }
 
+.picklist {
+	position: relative;
+	left: -10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .pickbox {
 	display: flex;
 	flex-direction: column;

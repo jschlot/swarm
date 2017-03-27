@@ -1,8 +1,10 @@
 import {
 	MAKE_CHOICE,
     NEXT_CHAPTER,
-    GOTO_BOOK,
-    GOTO_EPISODE
+    GOTO_STORY,
+    GOTO_EPISODELIST,
+    GOTO_EPISODE,
+    GOTO_MAIN
 } from './actionTypes';
 
 export const makeChoice = (question, episodeIdx, choice) => (
@@ -22,8 +24,21 @@ export const gotoEpisode = (episode, index) => (
     }
 );
 
-export const gotoBook = () => (
+export const gotoStory = id => (
     {
-        type: GOTO_BOOK
+        type: GOTO_STORY,
+        id
+    }
+);
+
+export const gotoEpisodeList = () => (
+    {
+        type: GOTO_EPISODELIST
+    }
+);
+
+export const gotoMain = () => (
+    {
+        type: GOTO_MAIN
     }
 );
