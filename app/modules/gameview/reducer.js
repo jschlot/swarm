@@ -14,6 +14,9 @@ const book = (state = BOOK, action) => state;
 
 const choices = (state = [], action) => {
     switch (action.type) {
+        case GOTO_MAIN:
+        case GOTO_STORY:
+            return [];
         case MAKE_CHOICE:
             return [
                 ...state,
@@ -30,12 +33,10 @@ const choices = (state = [], action) => {
 
 const toaster = (state = '', action) => {
     switch (action.type) {
-        case GOTO_EPISODELIST:
-            return '';
         case MAKE_CHOICE:
             return `you ${action.choice.text}`;
         default:
-            return state;
+            return '';
     }
 };
 
@@ -77,6 +78,9 @@ const progress = (state = {story: null, episode: null, chapter: null}, action) =
 
 const score = (state = {}, action) => {
     switch (action.type) {
+        case GOTO_MAIN:
+        case GOTO_STORY:
+            return {};
         case MAKE_CHOICE:
             const originalTally =  state[action.choice.alignment] && state[action.choice.alignment].tally || 0;
             const originalCount =  state[action.choice.alignment] && state[action.choice.alignment].count || 0;

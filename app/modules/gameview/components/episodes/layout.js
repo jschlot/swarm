@@ -56,7 +56,7 @@ const Episodes = (props) => {
                 }
                 </div>
                 <div className="episodes__back" onClick={ongotoMain}>
-                    back to swarm
+                    start over
                 </div>
 			</Panel>
         </div>
