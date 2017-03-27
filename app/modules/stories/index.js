@@ -1,6 +1,6 @@
-import { WHOAMI } from './whoami';
-import { GOINGPLACES } from './goingplaces';
-import { FOUNDANDLIST } from './foundandlost';
+import { WHOAMI } from './samplebook/whoami';
+import { GOINGPLACES } from './samplebook/goingplaces';
+import { FOUNDANDLIST } from './samplebook/foundandlost';
 
 export const samplebook = {
     meta: {
@@ -12,5 +12,5 @@ export const samplebook = {
         ],
         backgroundVideo: 'http://pixabay.com/en/videos/download/video-447_medium.mp4'
     },
-    episodes: [WHOAMI, GOINGPLACES, FOUNDANDLIST, GOINGPLACES, FOUNDANDLIST]
+    episodes: [WHOAMI, GOINGPLACES, FOUNDANDLIST]
 };

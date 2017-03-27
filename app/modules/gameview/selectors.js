@@ -1,4 +1,4 @@
-import {samplebook} from '../stories/samplebook';
+import * as stories from '../stories';
 import { NAME } from './constants';
 
 // ROOT = GAMEVIEW
@@ -7,15 +7,9 @@ const root = state => state[NAME];
 // TOASTER
 export const getMessage = state => root(state).toaster;
 
-// STORY STRUCTURE
-const book = state => samplebook;
-export const getBackgroundVideo = state => book(state).meta.backgroundVideo;
-export const getStoryTitle = state => book(state).meta.title;
-export const getStoryDescription = state => book(state).meta.description;
-export const getEpisodes = state => book(state).episodes;
-
 // NAVIGATION
 const gameProgress = state => root(state).progress;
+export const getCurrentStory = state => gameProgress(state).story || '';
 export const getEpisodeProgress = state => gameProgress(state).episode || 0;
 export const getChapterProgress = state => gameProgress(state).chapter || '';
 export const getStoryMode = state => {
@@ -24,14 +18,20 @@ export const getStoryMode = state => {
     }
     return 'episodes';
 };
-export const currentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
+
+// STORY STRUCTURE
+const book = state => stories[getCurrentStory(state)];
+export const getEpisodes = state => book(state).episodes;
+export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
 export const getChapter = (state, currentChapterId) => {
-    return currentEpisode(state).chapters[currentChapterId] || {};
+    return getCurrentEpisode(state).chapters[currentChapterId] || {};
 };
+export const getBackgroundVideo = state => book(state).meta.backgroundVideo;
+export const getStoryTitle = state => book(state).meta.title;
+export const getStoryDescription = state => book(state).meta.description;
 
 
 // CHOICES
-export const getLastChoice = state => gameProgress(state).last;
 export const choices = state => root(state).choices;
 
 // ALIGNMENTS

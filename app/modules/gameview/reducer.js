@@ -37,10 +37,13 @@ const toaster = (state = '', action) => {
     }
 };
 
-const progress = (state = {episode: 0, chapter: null, last: null}, action) => {
+const progress = (state = {story: 'samplebook', episode: 0, chapter: null}, action) => {
     switch (action.type) {
         case GOTO_BOOK:
-            return {episode: state.episode + 1, chapter: null, last: null};
+            return {
+                episode: state.episode + 1,
+                chapter: null
+            };
         case GOTO_EPISODE:
             return {
                 ...state,
@@ -50,8 +53,7 @@ const progress = (state = {episode: 0, chapter: null, last: null}, action) => {
         case MAKE_CHOICE:
             return {
                 ...state,
-                chapter: action.choice.next,
-                last: action.choice.alignment
+                chapter: action.choice.next
             };
         default:
             return state;
