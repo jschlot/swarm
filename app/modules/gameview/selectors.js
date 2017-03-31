@@ -1,5 +1,5 @@
 import * as stories from '../stories';
-import { NAME } from './constants';
+import { NAME, VIDEO } from './constants';
 
 // ROOT = GAMEVIEW
 const root = state => state[NAME];
@@ -32,7 +32,7 @@ export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(
 export const getChapter = (state, currentChapterId) => {
     return getCurrentEpisode(state).chapters[currentChapterId] || {};
 };
-export const getBackgroundVideo = state => 'http://pixabay.com/en/videos/download/video-447_medium.mp4'; // book(state).meta.backgroundVideo;
+export const getBackgroundVideo = state => VIDEO; // book(state).meta.backgroundVideo;
 export const getStoryTitle = state => book(state).meta.title;
 export const getStoryDescription = state => book(state).meta.description;
 
