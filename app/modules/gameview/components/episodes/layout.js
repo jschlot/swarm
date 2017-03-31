@@ -28,18 +28,21 @@ const Episodes = (props) => {
 				</div>
 				<div className="episodes__list">{
                     episodeList.map((obj, index) => {
+
+                        const css = classNames({
+                            'episodes__pick': true,
+                            'episodes__pick--completed': (index < currentEpisode)
+                        });
+
                         let handleClick = () => {};
                         if (currentEpisode === index) {
                             handleClick = () => onChooseEpisode(obj, index);
                         }
 
-                        let description = obj.description;
-                        if (index < currentEpisode) {
-                            description = 'episode completed';
-                        }
+                        const description = (index < currentEpisode) ? 'episode completed' : obj.description;
 
                         return (
-                            <div key={index} className="episodes__pick" onClick={handleClick}>
+                            <div key={index} className={css} onClick={handleClick}>
                                 <div className="episodes__number">Episode {index + 1}</div>
                                 <div className="episodes__title">{obj.title}</div>
                                 <div className="episodes__description">{description}</div>
@@ -49,7 +52,7 @@ const Episodes = (props) => {
                 }
                 </div>
                 <div className="episodes__back" onClick={ongotoMain}>
-                    start over
+                    back to the list of stories
                 </div>
 			</Panel>
         </div>

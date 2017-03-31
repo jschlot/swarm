@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
 import { stories } from './styles.scss';
 
@@ -25,18 +24,18 @@ const Stories = (props) => {
 				</div>
 				<div className="stories__list">{
                     Object.keys(storyList).map((id, index) => {
+                        const { title, description } = storyList[id].meta;
+                        const count = storyList[id].episodes.length;
                         return (
                             <div key={index} className="stories__pick" onClick={() => onChooseStory(id)}>
                                 <div className="stories__title">
-									{ storyList[id].meta.title }
+									{ title }
 								</div>
                                 <div className="stories__description">
-									{ storyList[id].meta.description }
+									{ description }
 								</div>
 								<div className="stories__description">
-									{ storyList[id].episodes.length }
-									&nbsp;
-									{ storyList[id].episodes.length === 1 ? 'episode' : 'episodes' }
+									{ count === 1 ? `${count} episode` : `${count} episodes` }
 								</div>
                             </div>
 						);

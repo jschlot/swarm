@@ -7,7 +7,7 @@ import Panel from '../panel';
 const Chapter = (props) => {
     const {
         chapterObj,
-        outCome,
+        outcome,
         episodeIdx,
         onChoice,
         onGoToEpisodeList
@@ -22,7 +22,7 @@ const Chapter = (props) => {
             </Panel>
             <Panel timer="1200">
                 <div className="chapter__body">
-                    {chapterObj.body[outCome] ? chapterObj.body[outCome] : chapterObj.body.default}
+                    {chapterObj.body[outcome] ? chapterObj.body[outcome] : chapterObj.body.default}
                 </div>
                 <div className="chapter__question">
                     {chapterObj.options && chapterObj.options.map((obj, index) => (
@@ -43,7 +43,7 @@ const Chapter = (props) => {
 
 Chapter.propTypes = {
     chapterObj: PropTypes.object.isRequired,
-    outCome: PropTypes.string,
+    outcome: PropTypes.string,
     episodeIdx: PropTypes.number,
     onChoice: PropTypes.func.isRequired,
     onGoToEpisodeList: PropTypes.func.isRequired

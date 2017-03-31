@@ -59,7 +59,7 @@
 	margin: 10px 0;
 	padding: 10px 0;
 	text-align: left;
-	color: $dustygray;
+	color: $silver;
 	cursor: pointer;
 
 	&:before {
@@ -67,10 +67,6 @@
 	}
 
 	&:hover {
-		color: $silver;
-	}
-
-	&:active {
 		color: $white;
 	}
 }

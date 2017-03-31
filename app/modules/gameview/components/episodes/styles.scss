@@ -5,34 +5,38 @@
 	@extend .section;
 
 	&__heading {
-    @extend .heading;
+      @extend .heading;
 	}
 
 	&__body {
-		@extend .body;
+	  @extend .body;
 	}
 
 	&__list {
-		@extend .picklist;
+	  @extend .picklist;
 	}
 
 	&__pick {
-		@extend .pickbox;
+	  @extend .pickbox;
+
+      &--completed {
+        opacity: 0.2;
+      }
 	}
 
 	&__number {
-		@extend .pickbox__description;
+	  @extend .pickbox__description;
 	}
 
 	&__title {
-		@extend .pickbox__title;
+	  @extend .pickbox__title;
 	}
 
 	&__description {
-		@extend .pickbox__description;
+	  @extend .pickbox__description;
 	}
 
 	&__back {
-   @extend .link;
+   	  @extend .link;
 	}
 }

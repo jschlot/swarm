@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
     const chapterProgress = getChapterProgress(state);
     return {
         chapterObj: getChapter(state, chapterProgress),
-        outCome: getOutcome(state),
+        outcome: getOutcome(state),
         episodeIdx: getEpisodeProgress(state)
     };
 };
