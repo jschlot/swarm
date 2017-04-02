@@ -27,7 +27,7 @@ const Episodes = (props) => {
 					{ storyDescription }
 				</div>
 				<div className="episodes__list">{
-                    episodeList.map((obj, index) => {
+                    episodeList.map((episode, index) => {
 
                         const css = classNames({
                             'episodes__pick': true,
@@ -36,15 +36,15 @@ const Episodes = (props) => {
 
                         let handleClick = () => {};
                         if (currentEpisode === index) {
-                            handleClick = () => onChooseEpisode(obj, index);
+                            handleClick = () => onChooseEpisode(episode, index);
                         }
 
-                        const description = (index < currentEpisode) ? 'episode completed' : obj.description;
+                        const description = (index < currentEpisode) ? 'episode completed' : episode.description;
 
                         return (
                             <div key={index} className={css} onClick={handleClick}>
                                 <div className="episodes__number">Episode {index + 1}</div>
-                                <div className="episodes__title">{obj.title}</div>
+                                <div className="episodes__title">{episode.title}</div>
                                 <div className="episodes__description">{description}</div>
                             </div>
                         );
