@@ -47,8 +47,8 @@ const Stories = (props) => {
 };
 
 Stories.propTypes = {
-    storyList: PropTypes.object.isRequired,
-    onChooseStory: PropTypes.func.isRequired
+    storyList: PropTypes.object,
+    onChooseStory: PropTypes.func
 };
 
 export default Stories;

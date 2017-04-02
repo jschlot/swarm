@@ -64,8 +64,8 @@ Episodes.propTypes = {
     currentEpisode: PropTypes.number,
     storyTitle: PropTypes.string,
     storyDescription: PropTypes.array,
-    onChooseEpisode: PropTypes.func.isRequired,
-    ongotoMain: PropTypes.func.isRequired
+    onChooseEpisode: PropTypes.func,
+    ongotoMain: PropTypes.func
 };
 
 export default Episodes;

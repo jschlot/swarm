@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 
 import {
-    getChapter,
+    getChapterId,
+    getChapterTitle,
+    getChapterBody,
+    getChapterOptions,
     getChapterProgress,
-    getEpisodeProgress,
-    getOutcome
+    getEpisodeProgress
 } from '../../selectors';
 
 import {
@@ -17,9 +19,11 @@ import Chapter from './layout';
 const mapStateToProps = (state) => {
     const chapterProgress = getChapterProgress(state);
     return {
-        chapterObj: getChapter(state, chapterProgress),
-        outcome: getOutcome(state),
-        episodeIdx: getEpisodeProgress(state)
+        chapterId: getChapterId(state, chapterProgress),
+        title: getChapterTitle(state, chapterProgress),
+        body: getChapterBody(state, chapterProgress),
+        options: getChapterOptions(state, chapterProgress),
+        episodeIdx: getEpisodeProgress(state),
     };
 };
 

@@ -30,10 +30,10 @@ export const WHOAMI = {
             title: 'saying goodbye',
             plot: 'the end of the story',
             body: {
-                default: [
+                [ALIGNMENTS.GOOD]: [
                     'you make it to an army hospital, and back to civilization.'
                 ],
-                [ALIGNMENTS.EVIL]: [
+                default: [
                     'sadly, the little girl dies suddenly. you never even got to know her name.'
                 ]
             }
@@ -60,7 +60,7 @@ export const WHOAMI = {
                     idx: 1,
                     text: 'try to back away, without saying anything',
                     alignment: ALIGNMENTS.CHAOTIC,
-                    weight: 2,
+                    weight: 12,
                     next: 'approach child'
                 }
             ]
@@ -90,6 +90,16 @@ export const WHOAMI = {
                     text: '(lie) tell her you don\'t have any food',
                     alignment: ALIGNMENTS.EVIL,
                     weight: 1,
+                    next: 'the end'
+                },
+                {
+                    conditional: {
+                        alignment: 'chaotic'
+                    },
+                    idx: 2,
+                    text: 'eat your last candy bar in front of her',
+                    alignment: ALIGNMENTS.CHAOTIC,
+                    weight: 3,
                     next: 'the end'
                 }
             ]

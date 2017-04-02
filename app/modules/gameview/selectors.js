@@ -1,11 +1,14 @@
 import * as stories from '../stories';
 import { NAME, VIDEO } from './constants';
 
-// ROOT = GAMEVIEW
+// ROOT = GAME VIEW
 const root = state => state[NAME];
 
 // TOASTER
 export const getMessage = state => root(state).toaster;
+
+// BACKGROUND
+export const getBackgroundVideo = state => VIDEO; // book(state).meta.backgroundVideo;
 
 // NAVIGATION
 const gameProgress = state => root(state).progress;
@@ -24,18 +27,15 @@ export const getStoryMode = state => {
     return 'stories';
 };
 
-// STORY STRUCTURE
+// STORIES
 export const getStoryList = state => stories;
 const book = state => getStoryList(state)[getStoryProgress(state)];
-export const getEpisodes = state => book(state).episodes;
-export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
-export const getChapter = (state, currentChapterId) => {
-    return getCurrentEpisode(state).chapters[currentChapterId] || {};
-};
-export const getBackgroundVideo = state => VIDEO; // book(state).meta.backgroundVideo;
 export const getStoryTitle = state => book(state).meta.title;
 export const getStoryDescription = state => book(state).meta.description;
 
+// EPISODES
+export const getEpisodes = state => book(state).episodes;
+export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
 
 // CHOICES
 export const choices = state => root(state).choices;
@@ -64,9 +64,31 @@ export const getOutcome = state => {
 
     return matches[0];
 };
+
 export const hasAlignment = (state, alignment) => {
     if (!root(state).score) {
         return false;
     }
     return root(state).score[alignment];
+};
+
+// CHAPTER
+export const getChapter = (state, currentChapterId) => {
+    return getCurrentEpisode(state).chapters[currentChapterId] || {};
+};
+export const getChapterTitle = (state, chapterProgress) => getChapter(state, chapterProgress).title || 'chapter one';
+export const getChapterId = (state, chapterProgress) => getChapter(state, chapterProgress).id;
+export const getChapterBody = (state, chapterProgress) => {
+    const outcome = getOutcome(state);
+    const chapterObj = getChapter(state, chapterProgress);
+    return chapterObj.body[outcome] ? chapterObj.body[outcome] : chapterObj.body.default;
+};
+export const getChapterOptions = (state, chapterProgress) => {
+    const options = getChapter(state, chapterProgress).options || null;
+    const outcome = getOutcome(state);
+
+    return options && options.filter((obj) => {
+        if (!obj.conditional) return obj;
+        return obj.conditional && obj.conditional.alignment === outcome;
+    });
 };
