@@ -1,5 +1,5 @@
 import * as stories from '../stories';
-import { NAME, VIDEO } from './constants';
+import { NAME, VIDEO, TITLE, DESCRIPTION, AUTHOR } from './constants';
 
 // UTILS
 const containsAll = (arr1, arr2) => arr2.every(arr2Item => arr1.includes(arr2Item));
@@ -12,7 +12,11 @@ const root = state => state[NAME];
 export const getMessage = state => root(state).toaster;
 
 // BACKGROUND
-export const getBackgroundVideo = state => VIDEO; // book(state).meta.backgroundVideo;
+export const getBackgroundVideo = state => VIDEO;
+export const getGameTitle = state => TITLE;
+export const getGameDescription = state => DESCRIPTION;
+export const getGameAuthor = state => AUTHOR;
+
 
 // NAVIGATION
 const gameProgress = state => root(state).progress;
@@ -37,8 +41,10 @@ const book = state => getStoryList(state)[getStoryProgress(state)];
 export const getStoryTitle = state => book(state).meta.title;
 export const getStoryDescription = state => book(state).meta.description;
 
+
 // EPISODES
-export const getEpisodes = state => book(state).episodes;
+export const getEpisodes = state => book(state).episodes || [];
+
 export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(state)] || {};
 
 // CHOICES

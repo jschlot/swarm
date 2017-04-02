@@ -1,6 +1,6 @@
 import { KERDEL } from './labyrinth/kerdel';
 
-export const bookOne = {
+export const BOOKONE = {
     meta: {
         title: 'Book One',
         keywords: 'epic, sword, sorcery, fantasy',
@@ -28,35 +28,32 @@ export const bookOne = {
     ]
 };
 
-export const bookTwo = {
+export const BOOKTWO = {
     meta: {
         title: 'Book Two',
         keywords: 'epic, sword, sorcery, fantasy',
         description: [
             'An ally is captured, and a rescue is planned'
         ]
-    },
-    episodes: []
+    }
 };
 
-export const bookThree = {
+export const BOOKTHREE = {
     meta: {
         title: 'Book Three',
         keywords: 'epic, sword, sorcery, fantasy',
         description: [
             'An uneasy and unexpected alliance is formed'
         ]
-    },
-    episodes: []
+    }
 };
 
-export const bookFour = {
+export const BOOKFOUR = {
     meta: {
         title: 'Book Four',
         keywords: 'epic, sword, sorcery, fantasy',
         description: [
             'A battle of epic proportions'
         ]
-    },
-    episodes: []
+    }
 };

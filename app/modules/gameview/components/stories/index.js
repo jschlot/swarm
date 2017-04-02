@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 
 import {
-	getStoryList
+	getStoryList,
+    getGameTitle,
+    getGameDescription,
+    getGameAuthor
 } from '../../selectors';
 
 import {
@@ -12,7 +15,10 @@ import Stories from './layout';
 
 const mapStateToProps = (state) => {
     return {
-        storyList: getStoryList(state)
+        storyList: getStoryList(state),
+        name: getGameTitle(state),
+        subtitle: getGameDescription(state),
+        author: getGameAuthor(state)
     };
 };
 

@@ -8,3 +8,7 @@ export const pluralizer = (count, word) => {
             return `${count} ${word}s`;
     }
 };
+
+export const countOf = (array) => {
+    return array && array.length || 0;
+};
