@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 
 import { stories } from './styles.scss';
-
 import Panel from '../panel';
+import { GAMETITLE } from '../../constants';
+import { pluralizer } from '../../formatters';
 
 const Stories = (props) => {
     const {
@@ -10,17 +11,15 @@ const Stories = (props) => {
 		onChooseStory
     } = props;
 
-
     return (
 		<div className="stories">
 			<Panel timer="600">
 				<h2 className="stories__heading">
-					swarm
+					{ GAMETITLE }
 				</h2>
 			</Panel>
 			<Panel timer="1200">
 				<div className="stories__body">
-					here's a list of the available stories...
 				</div>
 				<div className="stories__list">{
                     Object.keys(storyList).map((id, index) => {
@@ -34,9 +33,7 @@ const Stories = (props) => {
                                 <div className="stories__description">
 									{ description }
 								</div>
-								<div className="stories__description">
-									{ count === 1 ? `${count} episode` : `${count} episodes` }
-								</div>
+								<div className="stories__description">{ pluralizer(count, 'episode') }</div>
                             </div>
 						);
                     })

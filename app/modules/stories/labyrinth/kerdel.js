@@ -3,7 +3,7 @@ import { ALIGNMENTS } from '../constants';
 export const KERDEL = {
     id: 'kerdel',
     title: 'Kerdel',
-    description: 'coming soon',
+    description: 'On this night, you prepare for battle',
     start: 'prologue',
     chapters: {
         'prologue': {
@@ -11,9 +11,11 @@ export const KERDEL = {
             title: 'that night, on the wall...',
             body: {
                 default: [
-                    'you are KERDEL, a general in the Tam Army.\n\n',
+                    'you are KERDEL, a general in the Tam Army.',
+                    '',
                     'on this night, you are preparing for a battle to be held upon daylight breaking. ',
-                    'you hear the footsteps of an approaching courier.\n\n',
+                    'you hear the footsteps of an approaching courier.',
+                    '',
                     '"sir! KING MILLUS has requested you read this memo"...'
                 ]
             },
@@ -32,7 +34,7 @@ export const KERDEL = {
             title: 'are you prepared?',
             body: {
                 default: [
-                    '"Kerdel - please inspect your forces, and let this messenger know if your battalion" ',
+                    '"KERDEL - please inspect your forces, and let this messenger know if your battalion" ',
                     'is ready for war".'
                 ]
             },
@@ -196,7 +198,36 @@ export const KERDEL = {
                     next: 'return to messenger'
                 }
             ]
+        },
+        'return to messenger': {
+            id: 'return to messenger',
+            title: 'let the king know',
+            body: {
+                default: [
+                    'you approach the messenger, and let him know all is ready, locked and loaded.',
+                    'he safely departs quietly in the night, but something troubles you.',
+                    'you think back to the day you left on your first adventure',
+                    '',
+                    'the day this all started.'
+                ]
+            }
         }
 
     }
 };
+
+
+// lawful vs chaotic
+// would you spare the life of a prisoner, or executed him.
+
+// lawful vs good
+// would you have mercy for an insubordinate, or court marshals her
+
+// lawful vs evil
+// would you follow a rule he doesn't believe in, or succumb to his need for revenge.
+
+// good vs evil
+// would you take responsibility for the death of a squad, or blame one of the dead soldiers
+
+// good vs chaotic
+// evil vs chaotic
