@@ -24,7 +24,14 @@ const Chapter = (props) => {
             </Panel>
             <Panel timer="1200">
                 <div className="chapter__body">
-                    { body }
+                    { body.map((item, key) => {
+                        return (
+                            <span key={key}>
+                                {item}
+                                <br/>
+                            </span>
+                        );
+                    }) }
                 </div>
                 <div className="chapter__question">
                     {options && options.map((option, index) => {

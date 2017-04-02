@@ -31,6 +31,24 @@ const choices = (state = [], action) => {
     }
 };
 
+const toggles = (state = {}, action) => {
+    switch (action.type) {
+        case GOTO_MAIN:
+        case GOTO_STORY:
+            return {};
+        case MAKE_CHOICE:
+            if (!action.choice.toggle) {
+                return state;
+            }
+            return {
+                ...state,
+                [action.choice.toggle]: action.choice.toggle
+            };
+        default:
+            return state;
+    }
+};
+
 const toaster = (state = '', action) => {
     switch (action.type) {
         case MAKE_CHOICE:
@@ -100,7 +118,8 @@ const reducer = combineReducers({
     choices,
     toaster,
     progress,
-    score
+    score,
+    toggles
 });
 
 export default reducer;

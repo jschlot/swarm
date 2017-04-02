@@ -25,19 +25,6 @@ export const WHOAMI = {
                 }
             ]
         },
-        'the end': {
-            id: 'the end',
-            title: 'saying goodbye',
-            plot: 'the end of the story',
-            body: {
-                [ALIGNMENTS.GOOD]: [
-                    'you make it to an army hospital, and back to civilization.'
-                ],
-                default: [
-                    'sadly, the little girl dies suddenly. you never even got to know her name.'
-                ]
-            }
-        },
         'choice one': {
             id: 'choice one',
             title: 'with a whisper',
@@ -104,6 +91,19 @@ export const WHOAMI = {
                 }
             ]
 
+        },
+        'the end': {
+            id: 'the end',
+            title: 'saying goodbye',
+            plot: 'the end of the story',
+            body: {
+                [ALIGNMENTS.GOOD]: [
+                    'you make it to an army hospital, and back to civilization.'
+                ],
+                default: [
+                    'sadly, the little girl dies suddenly. you never even got to know her name.'
+                ]
+            }
         }
     }
 };

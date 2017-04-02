@@ -1,6 +1,10 @@
 import * as stories from '../stories';
 import { NAME, VIDEO } from './constants';
 
+// UTILS
+const containsAll = (arr1, arr2) => arr2.every(arr2Item => arr1.includes(arr2Item));
+const sameMembers = (arr1, arr2) => containsAll(arr1, arr2) && containsAll(arr2, arr1);
+
 // ROOT = GAME VIEW
 const root = state => state[NAME];
 
@@ -39,6 +43,9 @@ export const getCurrentEpisode = state => getEpisodes(state)[getEpisodeProgress(
 
 // CHOICES
 export const choices = state => root(state).choices;
+
+// TOGGLES
+export const toggles = state => root(state).toggles;
 
 // ALIGNMENTS
 export const getOutcome = state => {
@@ -83,12 +90,24 @@ export const getChapterBody = (state, chapterProgress) => {
     const chapterObj = getChapter(state, chapterProgress);
     return chapterObj.body[outcome] ? chapterObj.body[outcome] : chapterObj.body.default;
 };
+
 export const getChapterOptions = (state, chapterProgress) => {
     const options = getChapter(state, chapterProgress).options || null;
     const outcome = getOutcome(state);
 
     return options && options.filter((obj) => {
-        if (!obj.conditional) return obj;
-        return obj.conditional && obj.conditional.alignment === outcome;
+        if (obj.conditional) {
+            let match = -1;
+            if (obj.conditional.alignment && obj.conditional.alignment === outcome) {
+                match++;
+            }
+            if (obj.conditional.matches) {
+                if (sameMembers(obj.conditional.matches, Object.keys(toggles(state)))) {
+                    match++;
+                }
+            }
+            return match >= 0;
+        }
+        return true;
     });
 };
