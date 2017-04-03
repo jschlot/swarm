@@ -107,10 +107,13 @@ export const getChapterOptions = (state, chapterProgress) => {
             if (obj.conditional.alignment && obj.conditional.alignment === outcome) {
                 match++;
             }
-            if (obj.conditional.matches) {
-                if (sameMembers(obj.conditional.matches, Object.keys(toggles(state)))) {
+            if (obj.conditional.contains) {
+                if (sameMembers(obj.conditional.contains, Object.keys(toggles(state)))) {
                     match++;
                 }
+            }
+            if (obj.conditional.exclude) {
+                return !(Object.keys(toggles(state)).includes(obj.conditional.exclude));
             }
             return match >= 0;
         }

@@ -42,7 +42,7 @@ const Stories = (props) => {
                                 <div className="stories__description">
 									{ description }
 								</div>
-								<div className="stories__description">{ pluralizer(count, 'episode') }</div>
+								<div className="stories__description">{ pluralizer(count, 'episode', 'coming soon') }</div>
                             </div>
 						);
                     })

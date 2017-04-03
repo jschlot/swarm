@@ -1,5 +1,52 @@
 import { ALIGNMENTS } from '../constants';
 
+const missionOneOptions = [
+    {
+        conditional: {
+            exclude: 'barracks visited'
+        },
+        text: 'inspect the barracks',
+        alignment: ALIGNMENTS.NEUTRAL,
+        weight: 0,
+        toggle: 'barracks visited',
+        next: 'mission one: barracks'
+    },
+    {
+        conditional: {
+            exclude: 'siege workshop visited'
+        },
+        text: 'inspect the siege workshop',
+        alignment: ALIGNMENTS.NEUTRAL,
+        weight: 0,
+        toggle: 'siege workshop visited',
+        next: 'mission one: siege workshop'
+    },
+    {
+        conditional: {
+            exclude: 'naval yard visited'
+        },
+        text: 'inspect the naval yard',
+        alignment: ALIGNMENTS.NEUTRAL,
+        weight: 0,
+        toggle: 'naval yard visited',
+        next: 'mission one: naval yard'
+    },
+    {
+        conditional: {
+            contains: [
+                'barracks visited',
+                'naval yard visited',
+                'siege workshop visited'
+            ]
+        },
+        text: 'return to messenger',
+        alignment: ALIGNMENTS.NEUTRAL,
+        weight: 0,
+        next: 'mission one: return to messenger'
+    }
+];
+
+// STORY OF KERDEL
 export const KERDEL = {
     id: 'kerdel',
     title: 'Kerdel',
@@ -21,10 +68,9 @@ export const KERDEL = {
             },
             options: [
                 {
-                    idx: 0,
-                    text: 'read letter',
+                    text: 'read the king\'s letter',
                     alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
+                    weight: 0,
                     next: 'mission one'
                 }
             ]
@@ -38,32 +84,7 @@ export const KERDEL = {
                     'is ready for war".'
                 ]
             },
-            options: [
-                {
-                    idx: 0,
-                    text: 'inspect the barracks',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'barracks visited',
-                    next: 'mission one: barracks'
-                },
-                {
-                    idx: 1,
-                    text: 'inspect the siege workshop',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'siege workshop visited',
-                    next: 'mission one: siege workshop'
-                },
-                {
-                    idx: 2,
-                    text: 'inspect the naval yard',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'naval yard visited',
-                    next: 'mission one: naval yard'
-                }
-            ]
+            options: missionOneOptions
         },
         'mission one: barracks': {
             id: 'mission one: barracks',
@@ -77,38 +98,7 @@ export const KERDEL = {
                     'they are a good sort. truly, you feel comforted that they have your back.'
                 ]
             },
-            options: [
-                {
-                    idx: 0,
-                    text: 'inspect the siege workshop',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'siege workshop visited',
-                    next: 'mission one: siege workshop'
-                },
-                {
-                    idx: 1,
-                    text: 'inspect the naval yard',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'naval yard visited',
-                    next: 'mission one: naval yard'
-                },
-                {
-                    idx: 2,
-                    conditional: {
-                        contains: [
-                            'barracks visited',
-                            'naval yard visited',
-                            'siege workshop visited'
-                        ]
-                    },
-                    text: 'return to messenger',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    next: 'return to messenger'
-                }
-            ]
+            options: missionOneOptions
         },
         'mission one: siege workshop': {
             id: 'mission one: siege workshop',
@@ -121,38 +111,7 @@ export const KERDEL = {
                     'but will it actually be enough? the morning\'s battle will be final for so many.'
                 ]
             },
-            options: [
-                {
-                    idx: 0,
-                    text: 'inspect the barracks',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'barracks visited',
-                    next: 'mission one: barracks'
-                },
-                {
-                    idx: 1,
-                    text: 'inspect the naval yard',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'naval yard visited',
-                    next: 'mission one: naval yard'
-                },
-                {
-                    idx: 2,
-                    conditional: {
-                        matches: [
-                            'barracks visited',
-                            'naval yard visited',
-                            'siege workshop visited'
-                        ]
-                    },
-                    text: 'return to messenger',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    next: 'return to messenger'
-                }
-            ]
+            options: missionOneOptions
         },
         'mission one: naval yard': {
             id: 'mission one: naval yard',
@@ -166,41 +125,10 @@ export const KERDEL = {
                     'for some, it would be too soon, too many deaths were about to happen.'
                 ]
             },
-            options: [
-                {
-                    idx: 0,
-                    text: 'inspect the barracks',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'barracks visited',
-                    next: 'mission one: barracks'
-                },
-                {
-                    idx: 1,
-                    text: 'inspect the siege workshop',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    toggle: 'siege workshop visited',
-                    next: 'mission one: siege workshop'
-                },
-                {
-                    idx: 2,
-                    conditional: {
-                        contains: [
-                            'barracks visited',
-                            'naval yard visited',
-                            'siege workshop visited'
-                        ]
-                    },
-                    text: 'return to messenger',
-                    alignment: ALIGNMENTS.NEUTRAL,
-                    weight: 1,
-                    next: 'return to messenger'
-                }
-            ]
+            options: missionOneOptions
         },
-        'return to messenger': {
-            id: 'return to messenger',
+        'mission one: return to messenger': {
+            id: 'mission one: return to messenger',
             title: 'let the king know',
             body: {
                 default: [
@@ -208,7 +136,7 @@ export const KERDEL = {
                     'he safely departs quietly in the night, but something troubles you.',
                     'you think back to the day you left on your first adventure',
                     '',
-                    'the day this all started.'
+                    'the day this all started...'
                 ]
             }
         }

@@ -1,7 +1,7 @@
-export const pluralizer = (count, word) => {
+export const pluralizer = (count, word, fallback) => {
     switch (count) {
         case 0:
-            return 'coming soon';
+            return fallback;
         case 1:
             return `${count} ${word}`;
         default:
